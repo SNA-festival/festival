@@ -1,0 +1,12 @@
+{% extends 'mysite/base.html' %}
+{% load future %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <small class="date">published: {{ post.published_date|date:'d-m-Y' }}</small>
+            <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text1|truncatechars:200 }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

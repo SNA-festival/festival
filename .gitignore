@@ -1,0 +1,10 @@
+MANIFEST
+include
+lib
+local
+bin
+build
+dist
+*.pyc
+.Python
+db.sqlite3
