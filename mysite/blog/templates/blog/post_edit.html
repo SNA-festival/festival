@@ -1,0 +1,29 @@
+{% extends 'mysite/base.html' %}
+{% load staticfiles %}
+<html>
+    <head>
+      
+      	<style>
+         form
+         {
+            height: 100px;
+            width: 70%;
+          }
+        </style>
+        
+        
+        
+    </head>
+    <body>
+      
+
+{% block content %}
+    <h1>New post</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+</body>
+</html>
