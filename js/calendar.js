@@ -22,9 +22,8 @@ var elem=document.createElement("img");
 
 $(document).ready(function(){
     createCalendar();
-    showtip();
-    showevent();
-    
+    photowall();
+    hide();
     // $('.changeMonth').live('click', function (){
     //      changeMonth($(this).attr('id'));
     //  });
@@ -34,6 +33,8 @@ $(document).ready(function(){
 // }
 
 function createCalendar(){
+    
+   
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
 
@@ -71,10 +72,10 @@ function createCalendar(){
         }
         else{
             if(counter==1){
-                $('#month').append('<div id="'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><img id="movie" onclick="changeImage()" src="http://c.dryicons.com/images/icon_sets/handy_part_2_icons/png/128x128/movie.png" width="20" height="20"><img src="http://freeiconbox.com/icon/256/35564.png" width="20" height="20"><p  class="openTop red" width="400" height="180">感恩節</br><a href="http://feeds.feedburner.com/Tutorialzine"><a href="http://umkkaea539e4.mish.koding.io:8000/post/6/">幸運骨</a></a></p></div>');        
+                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg"><dt>感恩節</dt></a></div>');        
                  $('.dayBox').css({backgroundColor : '#FFA488'});
             }else if(counter==25){
-                $('#month').append('<div id="'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><img src="http://freeiconbox.com/icon/256/35564.png" width="20" height="20"><p  class="openTop red" width="400" height="180">聖誕節</br><a href="http://feeds.feedburner.com/Tutorialzine"><a href="http://umkkaea539e4.mish.koding.io:8000/post/6/">新北耶誕城</a></a></p></div>');        
+                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg"><dt>聖誕節</dt></a></div>');        
                 
             }
             else{
@@ -100,86 +101,6 @@ function createCalendar(){
     }
 
 
-
-
-
-//         var JanList = new Array();
-//         JanList[0] = {
-//             date: 1
-//             re: false,
-//             tr: true,
-//             mu: false,
-//             mo: false,
-//             lo: false,
-//         };
-//         var FebList = new Array();
-//         FebList[0] = {
-//             date: 14
-//             re: false,
-//             tr: false,
-//             mu: false,
-//             mo: false,
-//             lo: true,
-//         };
-//         FebList[1] = {
-//             date: 18
-//             re: false,
-//             tr: true,
-//             mu: false,
-//             mo: false,
-//             lo: false,
-//         };
-//         FebList[2] = {
-//             date: 19
-//             re: false,
-//             tr: true,
-//             mu: false,
-//             mo: false,
-//             lo: false,
-//         };
-//         FebList[3] = {
-//             date: 23
-//             re: false,
-//             tr: true,
-//             mu: false,
-//             mo: false,
-//             lo: false,
-//         };
-
-        // var DecList = new Array();
-        // DecList[0] = {
-        //     date: 22
-        //     re: false,
-        //     tr: true,
-        //     mu: false,
-        //     mo: false,
-        //     lo: false,
-        // };
-        // DecList[1] = {
-        //     date: 25
-        //     re: false,
-        //     tr: false,
-        //     mu: false,
-        //     mo: false,
-        //     lo: false,
-        // };
-
-        // if(currentMonth == new Date().getMonth()){
-        //         for (var i = 0; i < DecList.length; i++) {
-        //             if(DecList[i].date == 25){
-        //                 (DecList.date).css({backgroundColor : '#FFA488'});     
-        //         };
-                
-        //     }
-
-
-   
-
-
-
-
-
-
     $('#header').append('<div id="createEvent"></div>');
     $('#createEvent').css({backgroundColor : '#FFA488'});
     
@@ -201,7 +122,7 @@ function createCalendar(){
             boxShadow: '#ddd 2px 2px'})
         }
     );        
-
+    showevent();
     //display calender after it's built
     $('#calendar').css('display', 'block');      
 }
@@ -240,6 +161,9 @@ function changeprevMonth(){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         createCalendar();
+        $('#photowall').html('');
+        photowall();
+        hide();
 }
 function changenextMonth(){
         if(currentMonth == 11){ 
@@ -268,131 +192,27 @@ function changenextMonth(){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         createCalendar();
-        showevent();
+        $('#photowall').html('');
+        photowall();
+        hide();
 }
 
-function showtip(){
-// $(document).ready(function(){
-    /* The code here is executed on page load */
-    
-    /* Replacing all the paragraphs */
-    $('.main p').replaceWith(function(){
-    
-        /* The style, class and title attributes of the p are copied to the slideout: */
-        
-        return '\
-        <div class="slideOutTip '+$(this).attr('class')+'" style="'+$(this).attr('style')+'">\
-            \
-            <div class="tipVisible">\
-                <div class="tipIcon"><div class="plusIcon"></div></div>\
-                <p class="tipTitle">'+$(this).attr('title')+'</p>\
-            </div>\
-            \
-            <div class="slideOutContent">\
-                <p>'+$(this).html()+'</p>\
-            </div>\
-        </div>';
+
+function photowall(){
+    $('#photowall').append('<div id="showimg"><p id="back">back</p><img id="dd" src="http://www.pdatw.com/fileup/image/event/111201_xmas_card/pda_card_xmas_02.jpg"></div>');
+}
+function hide(){
+    $('#dd').hide();
+    $('#back').hide();
+      // Hide all DDs inside .faqs
+    $('dt').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ // Add class "hover" on dt when hover
+        $('#dd').hide();
+        $('#back').hide();
+        $('#dd').slideToggle('normal'); 
+        $('#back').slideToggle('normal');// Toggle dd when the respective dt is clicked
+    }); 
+    $('#back').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ // Add class "hover" on dt when hover
+        $('#dd').slideToggle('normal'); 
+        $('#back').slideToggle('normal');// Toggle dd when the respective dt is clicked
     });
-
-    $('.slideOutTip').each(function(){
-
-        /*
-            Implicitly defining the width of the slideouts according to the width of its title,
-            because IE fails to calculate it on its own.
-        */
-        
-        $(this).width(40+$(this).find('.tipTitle').width());
-    });
-    
-    /* Listening for the click event: */
-    
-    $('.tipVisible').bind('click',function(){
-        var tip = $(this).parent();
-        
-        /* If a open/close animation is in progress, exit the function */
-        if(tip.is(':animated'))
-            return false;
-
-        if(tip.find('.slideOutContent').css('display') == 'none')
-        {
-            tip.trigger('slideOut');
-        }
-        else tip.trigger('slideIn');
-
-    });
-    
-    $('.slideOutTip').bind('slideOut',function(){
-
-        var tip = $(this);
-        var slideOut = tip.find('.slideOutContent');
-        
-        /* Closing all currently open slideouts: */
-        $('.slideOutTip.isOpened').trigger('slideIn');
-        
-        /* Executed only the first time the slideout is clicked: */
-        if(!tip.data('dataIsSet'))
-        {
-            tip .data('origWidth',tip.width())
-                .data('origHeight',tip.height())
-                .data('dataIsSet',true);
-            
-            if(tip.hasClass('openTop'))
-            {
-                /*
-                    If this slideout opens to the top, instead of the bottom,
-                    calculate the distance to the bottom and fix the slideout to it.
-                */
-                
-                tip.css({
-                    bottom  : tip.parent().height()-(tip.position().top+tip.outerHeight()),
-                    top     : 'auto'
-                });
-                
-                /* Fixing the title to the bottom of the slideout, so it is not slid to the top on open: */
-                tip.find('.tipVisible').css({position:'absolute',bottom:3});
-                
-                /* Moving the content above the title, so it can slide open to the top: */
-                tip.find('.slideOutContent').remove().prependTo(tip);
-            }
-            
-            if(tip.hasClass('openLeft'))
-            {
-                /*
-                    If this slideout opens to the left, instead of right, fix it to the
-                    right so the left edge can expand without moving the entire div:
-                */
-                tip.css({
-                    right   : Math.abs(tip.parent().outerWidth()-(tip.position().left+tip.outerWidth())),
-                    left    : 'auto'
-                });
-                
-                tip.find('.tipVisible').css({position:'absolute',right:3});
-            }
-        }
-        
-        /* Resize the slideout to fit the content, which is then faded into view: */
-        
-        tip.addClass('isOpened').animate({
-            width   : Math.max(slideOut.outerWidth(),tip.data('origWidth')),
-            height  : slideOut.outerHeight()+tip.data('origHeight')
-        },function(){
-            slideOut.fadeIn();
-        });
-
-    }).bind('slideIn',function(){
-        var tip = $(this);
-
-        /* Hide the content and restore the original size of the slideout: */
-        
-        tip.find('.slideOutContent').fadeOut('fast',function(){
-            tip.animate({
-                width   : tip.data('origWidth'),
-                height  : tip.data('origHeight')
-            },function(){
-                tip.removeClass('isOpened');
-            });
-        });
-
-    });
-//});
 }
