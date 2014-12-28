@@ -34,7 +34,7 @@ $(document).ready(function(){
 
 function createCalendar(){
     
-   
+    scrollsmooth();
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
 
@@ -215,4 +215,20 @@ function hide(){
         $('#dd').slideToggle('normal'); 
         $('#back').slideToggle('normal');// Toggle dd when the respective dt is clicked
     });
+}
+
+function scrollsmooth(){
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
 }
