@@ -39,7 +39,25 @@
 	<script type="text/javascript" src="js/icon.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
- 	<script type="text/javascript" src="js/calendar.js"></script>
+ 	<script type="text/javascript" src="js/calendar.js" ></script>
+ 	<script>
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+	</script>
+
 </head>
 
 <body>
@@ -56,15 +74,6 @@
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active">
-					<a href="http://ujkk711acb3a.joanne0410.koding.io/layoutit_rank/src/index.html">rank</a>
-				</li>
-				<li >
-					<a href="http://umkkaea539e4.mish.koding.io:8000/post/new/">post</a>
-				</li>
-				
-			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li>
@@ -83,20 +92,18 @@
 	<div id="calendar">
 	</div>
 
-	<div>
-		<img id="movie" onclick="changeImage()" src="http://c.dryicons.com/images/icon_sets/handy_part_2_icons/png/128x128/movie.png" width="20" height="20">
-		<img id="music" onclick="changeImage()" src="http://freeiconbox.com/icon/256/35564.png" width="20" height="20">
-	</div>
-	<!-- <div class="main">
-	<p title="2200+ Twitter Followers" class="openTop openLeft blue" style="top:400px;left:650px;">
-        Become one of our twitter followers and receive every design and development update we share with the community.
-        <a href="http://twitter.com/Tutorialzine"><img src="img/2.jpg" title="Follow us" class="spaceTop" alt="Follow us on twitter" width="460" height="210" /></a>
-    </p>
-</div> -->
-
-	<div id="createEvent"></div>
 
 </div>
+<div class="container" >
+
+	
+
+	<div id="photowall">
+	</div>
+
+
+</div>
+
 
 
 
