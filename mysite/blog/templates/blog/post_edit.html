@@ -3,27 +3,60 @@
 <html>
     <head>
       
-      	<style>
-         form
-         {
-            height: 100px;
-            width: 70%;
-          }
-        </style>
+      
         
         
         
     </head>
     <body>
+      {% block content %}
       
+         
 
-{% block content %}
     <h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
+    <form method="POST" class="post-form"  enctype="multipart/form-data">{% csrf_token %}
         
         {{ form.as_p }}
+        
+  <!--      <p>{{ form.non_field_errors }} </p>-->
+		<!--<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }} </p>-->
+		<!--<p>-->
+		<!--    {{ form.docfile.errors }} {{ form.docfile }}  -->
+		<!--</p>-->
+		<p>
+		    <input type="submit" value="Upload" />
+		</p>
         <button type="submit" class="save btn btn-default">Save</button>
+        
+        
     </form>
+    
+  
+		
+	{% if documents %}
+		<ul>
+		{% for document in documents %}
+			<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No documents.Mish</p>
+	{% endif %}
+	
+	
+    <!--mish v1-->
+       <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+    	<p>{{ form.non_field_errors }} </p>
+    	<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }} </p>
+    	<p>
+    	    {{ form.docfile.errors }} {{ form.docfile }}  
+    	</p>
+    	<p>
+    	    <input type="submit" value="Upload" />
+    	</p>
+    </form>
+	
 {% endblock %}
 </body>
 </html>

@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
 from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
+from django.template import RequestContext
 
+from .models import Document
+from .forms import DocumentForm
 from .models import Post
 from .forms import PostForm
 
@@ -51,3 +56,28 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return HttpResponseRedirect(reverse(post_list))
+    
+ 
+# mish v1 upload image    
+def list(request):
+    # Handle file upload
+    if request.method == 'POST':
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(reverse('mysite.blog.views.list'))
+    else:
+        form = DocumentForm() # A empty, unbound form
+
+    # Load documents for the list page
+    documents = Document.objects.all()
+
+    # Render list page with the documents and the form
+    return render_to_response(
+        'blog/post_edit.html',
+        {'documents': documents, 'form': form},
+        context_instance=RequestContext(request)
+    )
