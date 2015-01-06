@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fancyBox - Fancy jQuery Lightbox Alternative | Demonstration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- Add fancyBox main CSS files -->
+	<link rel="stylesheet" type="text/css" href="../source/jquery.fancybox.css?v=2.1.5" media="screen" />
+	<!-- CSS Reset -->
+	<link rel="stylesheet" href="css/reset.css">
+
+	<!-- Global CSS for the page and tiles -->
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- Specific CSS for the tiles -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Don't hide the inactive items, just fade the out -->
+  	<style>
+	    #tiles li.inactive {
+	      visibility: visible;
+	      opacity: .2;
+	      filter: alpha(opacity=20); /* IE 7 and Earlier */
+	      /* Next 2 lines IE8 */
+	      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+	      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+	    }
+  	</style>
+
+  	<!--fancybox text css -->
+  	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+
+		body {
+			max-width: 700px;
+			margin: 0 auto;
+		}
+	</style>
+
+
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="../lib/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="../lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS files -->
+	<script type="text/javascript" src="../source/jquery.fancybox.js?v=2.1.5"></script>
+
+
+
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			 // Simple image gallery. Uses default settings
+			$('.fancybox').fancybox();
+
+		});
+	</script>
+
+	 <!-- Once the page is loaded, initalize the plug-in. -->
+	<script type="text/javascript">
+    (function ($){
+
+      $('#tiles').imagesLoaded(function() {
+        // Prepare layout options.
+        var options = {
+          autoResize: true, // This will auto-update the layout when the browser window is resized.
+          container: $('#main'), // Optional, used for some extra CSS styling
+          offset: 2, // Optional, the distance between grid items
+          itemWidth: 210, // Optional, the width of a grid item
+          fillEmptySpace: true, // Optional, fill the bottom of each column with widths of flexible height
+          ignoreInactiveItems: false,
+          comparator: function(a, b) {
+            return $(a).hasClass('inactive') && !$(b).hasClass('inactive') ? 1 : -1;
+          }
+        };
+        // Get a reference to your grid items.
+        var handler = $('#tiles li'),
+            filters = $('#filters li');
+        // Call the layout function.
+        handler.wookmark(options);
+        /**
+         * When a filter is clicked, toggle it's active state and refresh.
+         */
+        var onClickFilter = function(event) {
+          var item = $(event.currentTarget),
+              activeFilters = [];
+          item.toggleClass('active');
+          // Collect active filter strings
+          filters.filter('.active').each(function() {
+            activeFilters.push($(this).data('filter'));
+          });
+          handler.wookmarkInstance.filter(activeFilters, 'or');
+        }
+        // Capture filter click events.
+        filters.click(onClickFilter);
+      });
+    })(jQuery);
+  </script>
+	
+</head>
+<body>
+	<div id="container">
+	<!--These are our filter options. The "data-filter" classes are used to identify which grid items to show.-->
+    <br/>
+    <ol id="filters">
+      <li data-filter="sport">Sport</li>
+      <li data-filter="music">Fashion</li>
+      <li data-filter="video">Video</li>
+      <li data-filter="art">Art</li>
+    </ol>
+    <br/>
+
+    <div id="main" role="main">
+   
+	<!--image gallery &&  These are our grid items. Notice how each one has classes assigned that are used for filtering. The classes match the "data-filter" properties above.-->
+	<h3>Simple image gallery</h3>
+	<div id="main" role="main">
+
+      <ul id="tiles">
+      <p> 
+        <li data-filter-class='["video", "art"]'>
+		<a class="fancybox" href="baby.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="baby.jpg" alt="" /></a>
+        <p>baby</p>
+        </li>
+
+		<a class="fancybox" href="dog.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"><img src="dog.jpg" alt="" /></a>
+
+		<a class="fancybox" href="cat.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img src="cat.jpg" alt="" /></a>
+
+		<a class="fancybox" href="owl.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="owl.jpg" alt="" /></a>
+	</p>
+
+	
+</body>
+</html>
