@@ -23,10 +23,12 @@
 		<!--<p>-->
 		<!--    {{ form.docfile.errors }} {{ form.docfile }}  -->
 		<!--</p>-->
-		<p>
-		    <input type="submit" value="Upload" />
-		</p>
-        <button type="submit" class="save btn btn-default">Save</button>
+		
+        <button type="submit" name="save" class="save btn btn-default">Save</button>
+        
+  <!--      <p>-->
+		<!--<input type="submit" name="upload" value="Upload" />-->
+		<!--</p>-->
         
         
     </form>
@@ -45,15 +47,15 @@
 	
 	
     <!--mish v1-->
-       <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+       <form  method="post" enctype="multipart/form-data">
     	{% csrf_token %}
-    	<p>{{ form.non_field_errors }} </p>
-    	<p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }} </p>
+    	<p>{{ formUpload.non_field_errors }} </p>
+    	<p>{{ formUpload.docfile.label_tag }} {{ formUpload.docfile.help_text }} </p>
     	<p>
-    	    {{ form.docfile.errors }} {{ form.docfile }}  
+    	    {{ formUpload.docfile.errors }} {{ formUpload.docfile }}  
     	</p>
     	<p>
-    	    <input type="submit" value="Upload" />
+    	    <input type="submit" value="Upload" name="upload" />
     	</p>
     </form>
 	

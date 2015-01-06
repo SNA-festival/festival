@@ -19,16 +19,40 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_new(request):
+   # if 'save' in request.POST:
     if request.method == "POST":
+        #save button
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
             return HttpResponseRedirect(reverse(post_detail, kwargs={'pk': post.pk}))
+        
+        #upload button    
+        formUpload = DocumentForm(request.POST, request.FILES)
+        if formUpload.is_valid():
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(".")    
+            
     else:
         form = PostForm()
-    return render(request, 'blog/post_edit.html', {'form': form})
+        formUpload = DocumentForm() # A empty, unbound form
+
+    # Load documents for the list page
+    documents = Document.objects.all()
+        
+   # return render(request, 'blog/post_edit.html', {'form': form})
+    return render_to_response(
+    'blog/post_edit.html',
+    {'documents': documents, 'formUpload': formUpload, 'form': form},
+    context_instance=RequestContext(request)
+    )
+        
+    
 
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -38,6 +62,13 @@ def post_publish(request, pk):
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
+
+
+def post_remove(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return HttpResponseRedirect(reverse(post_list))
+    
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -51,26 +82,20 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
-
-def post_remove(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    post.delete()
-    return HttpResponseRedirect(reverse(post_list))
     
- 
 # mish v1 upload image    
 def list(request):
     # Handle file upload
     if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid():
+        formUpload = DocumentForm(request.POST, request.FILES)
+        if formUpload.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
             newdoc.save()
 
             # Redirect to the document list after POST
             return HttpResponseRedirect(reverse('mysite.blog.views.list'))
     else:
-        form = DocumentForm() # A empty, unbound form
+        formUpload = DocumentForm() # A empty, unbound form
 
     # Load documents for the list page
     documents = Document.objects.all()
@@ -78,6 +103,6 @@ def list(request):
     # Render list page with the documents and the form
     return render_to_response(
         'blog/post_edit.html',
-        {'documents': documents, 'form': form},
+        {'documents': documents, 'formUpload': formUpload},
         context_instance=RequestContext(request)
     )
