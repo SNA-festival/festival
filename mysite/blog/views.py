@@ -43,7 +43,10 @@ def post_new(request):
         formUpload = DocumentForm() # A empty, unbound form
 
     # Load documents for the list page
-    documents = Document.objects.all()
+    #documents = Document.objects.all()
+    #documents = Document.objects.order_by('documents/%Y/%m/%d').first()
+    #documents = Document.objects.latest('pub_date')
+    documents = Document.objects.order_by('id').reverse()[:1]
         
    # return render(request, 'blog/post_edit.html', {'form': form})
     return render_to_response(

@@ -9,11 +9,40 @@
         
     </head>
     <body>
+    	
+    	<h1>New post</h1>
+    	
       {% block content %}
+      
+    	{% if documents %}
+			<ul>
+			{% for document in documents %}
+			
+				<!--<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>-->
+				<!--<li><img src="{{ document.docfile.url }}" width="42" height="42"></li>-->
+				<img src="{{ document.docfile.url }}" width="420" height="320">
+				
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No documents.Mish</p>
+		{% endif %}  
+		
+	     <form  method="post" enctype="multipart/form-data">
+	    	{% csrf_token %}
+	    	<p>{{ formUpload.non_field_errors }} </p>
+	    	<p>{{ formUpload.docfile.label_tag }} {{ formUpload.docfile.help_text }} </p>
+	    	<p>
+	    	    {{ formUpload.docfile.errors }} {{ formUpload.docfile }}  
+	    	</p>
+	    	<p>
+	    	    <input type="submit" value="Upload" name="upload" />
+	    	</p>
+	     </form>
       
          
 
-    <h1>New post</h1>
+    
     <form method="POST" class="post-form"  enctype="multipart/form-data">{% csrf_token %}
         
         {{ form.as_p }}
@@ -31,32 +60,6 @@
 		<!--</p>-->
         
         
-    </form>
-    
-  
-		
-	{% if documents %}
-		<ul>
-		{% for document in documents %}
-			<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>
-		{% endfor %}
-		</ul>
-	{% else %}
-		<p>No documents.Mish</p>
-	{% endif %}
-	
-	
-    <!--mish v1-->
-       <form  method="post" enctype="multipart/form-data">
-    	{% csrf_token %}
-    	<p>{{ formUpload.non_field_errors }} </p>
-    	<p>{{ formUpload.docfile.label_tag }} {{ formUpload.docfile.help_text }} </p>
-    	<p>
-    	    {{ formUpload.docfile.errors }} {{ formUpload.docfile }}  
-    	</p>
-    	<p>
-    	    <input type="submit" value="Upload" name="upload" />
-    	</p>
     </form>
 	
 {% endblock %}
