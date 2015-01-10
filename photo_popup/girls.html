@@ -1,0 +1,1261 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<title>Responsive Slideshow Photo Gallery Grid</title>
+
+	<!-- Import required css and js files -->
+	<link rel="stylesheet" type="text/css"  href="load/global.css"></link>
+	<script type="text/javascript" src="java/FWDGrid.js"></script>
+
+	
+	<!-- Style the html and body elements -->
+	<style type="text/css">
+		html, body{
+			background-color:#111111;
+			font-family:Arial, Helvetica, sans-serif;
+			margin: 0px;
+			padding: 0px;
+			width:100%;
+		}
+		
+		#wrapper{
+			width:100%;
+		}
+	</style>
+	
+	<!-- Setup grid (all parameters are explained in detail in the help file) -->
+	<script type="text/javascript">
+		
+		FWDUtils.onReady(function(){
+			var grid =  new FWDGrid({
+					//main settings ( required)
+					gridHolderId:"myDiv",
+					gridPlayListAndSkinId:"grid",
+					thumbnailOverlayType:"text",
+								 
+					//grid settings (optional)
+					backgroundColor:"#111111",
+					thumbnailBorderColor:"#FFFFFF",
+					thumbnailBackgroundColor:"#222222",
+					thumbnailOverlayBackgroundColor:"#000000",
+					nrOfThumbsToShowOnSet:40,
+					thumbnailMaxWidth:320,
+					thumbnailMaxHeight:200,
+					horizontalSpaceBetweenThumbnails:1,
+					verticalSpaceBetweenThumbnails:1,
+					thumbnailBorderSize:0,
+					thumbnailOverlayOpacity:.9,
+								 
+					//ligbox settings (optional)
+					addLightBoxKeyboardSupport:"yes",
+					showLightBoxNextAndPrevButtons:"yes",
+					showLightBoxZoomButton:"yes",
+					showLightBoxInfoButton:"yes",
+					showLighBoxSlideShowButton:"yes",
+					slideShowAutoPlay:"no",
+					showContextMenu:"no",
+					lighBoxBackgroundColor:"#000000",
+					lightBoxInfoWindowBackgroundColor:"#FFFFFF",
+					lightBoxItemBorderColor:"#FFFFFF",
+					lightBoxItemBackgroundColor:"#222222",
+					lightBoxMainBackgroundOpacity:.8,
+					lightBoxInfoWindowBackgroundOpacity:.9,
+					lightBoxBorderSize:4,
+					lightBoxSlideShowDelay:4
+				});
+		})
+			
+	</script>
+		
+</head>
+
+<body>
+	
+	<div id="myDiv"></div>
+	
+	<!-- Grid playlist and skin, display:none is added in case that javascript is disabled! -->
+	<ul id="grid" style="display:none">
+	
+		<!-- Grid skin -->
+		<ul>
+			<li data-preloader-path="load/skin_square/rotite-30-29.png"></li>
+			<li data-slideshow-preloader-path="load/skin_square/slideShowPreloader.png"></li>
+			<li data-show-more-thumbnails-button-normal-path="load/skin_square/showMoreThumbsNormalState.png"></li>
+			<li data-show-more-thumbnails-button-selectsed-path="load/skin_square/showMoreThumbsSelectedState.png"></li>
+			<li data-image-icon-path="load/skin_square/photoIcon.png"></li>
+			<li data-video-icon-path="load/skin_square/videoIcon.png"></li>
+			<li data-link-icon-path="load/skin_square/linkIcon.png"></li>
+			<li data-lightbox-close-button-normal-path="load/skin_square/galleryCloseButtonNormalState.png"></li>
+			<li data-lightbox-close-button-selected-path="load/skin_square/galleryCloseButtonSelectedState.png"></li>
+			<li data-lightbox-next-button-normal-path="load/skin_square/nextIconNormalState.png"></li>
+			<li data-lightbox-next-button-selected-path="load/skin_square/nextIconSelectedState.png"></li>
+			<li data-lightbox-prev-button-normal-path="load/skin_square/prevIconNormalState.png"></li>
+			<li data-lightbox-prev-button-selected-path="load/skin_square/prevIconSelectedState.png"></li>
+			<li data-lightbox-play-button-normal-path="load/skin_square/playButtonNormalState.png"></li>
+			<li data-lightbox-play-button-selected-path="load/skin_square/playButtonSelectedState.png"></li>
+			<li data-lightbox-pause-button-normal-path="load/skin_square/pauseButtonNormalState.png"></li>
+			<li data-lightbox-pause-button-selected-path="load/skin_square/pauseButtonSelectedState.png"></li>
+			<li data-lightbox-maximize-button-normal-path="load/skin_square/maximizeButtonNormalState.png"></li>
+			<li data-lightbox-maximize-button-selected-path="load/skin_square/maximizeButtonSelectedState.png"></li>
+			<li data-lightbox-minimize-button-normal-path="load/skin_square/minimizeButtonNormalState.png"></li>
+			<li data-lightbox-minimize-button-selected-path="load/skin_square/minimizeButtonSelectedState.png"></li>
+			<li data-lightbox-info-button-open-normal-path="load/skin_square/infoButtonOpenNormalState.png"></li>
+			<li data-lightbox-info-button-open-selected-path="load/skin_square/infoButtonOpenSelectedState.png"></li>
+			<li data-lightbox-info-button-close-normal-path="load/skin_square/infoButtonCloseNormalPath.png"></li>
+			<li data-lightbox-info-button-close-selected-path="load/skin_square/infoButtonCloseSelectedPath.png"></li>
+		</ul>
+		
+		<!-- Grid playlist -->
+		<ul>
+			<ul>
+				<li data-type="media" data-url="load/images/1.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/1.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="smallLabel">Full css support, the text which appear over the thumbnail can be formatted  with CSS.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="mediaDescriptionText">This description window and the info button are optional, each item can have a different description and of course the text can be formatted with CSS.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/2.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/2.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/3.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/4.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/4.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/5.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/5.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/6.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/6.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY.</p>
+					<p class="mediaDescriptionText">This feature allows you to change the size of the thumbnails and the space between thumbnails.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/7.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/8.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/9.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/9.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">AMAZING PERFORMANCE ON MOBILE DEVICES</p>
+					<p class="smallLabel">This gallery is using the GPU (hardware acceleration).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">AMAZING PERFORMANCE ON MOBILE DEVICES.</p>
+					<p class="mediaDescriptionText">This gallery is using the GPU (hardware acceleration), the rendering speed and performance are impeccable on desktop computers and most importantly on mobile devices.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/10.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/10.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/11.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/11.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">ZOOM AND PANNING SUPPORT FOR IMAGES</p>
+					<p class="smallLabel">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">ZOOM AND PANNING SUPPORT FOR IMAGES.</p>
+					<p class="mediaDescriptionText">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/12.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/13.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/13.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">INFO WINDOW AND INFO BUTTON</p>
+					<p class="smallLabel">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">INFO WINDOW AND INFO BUTTON.</p>
+					<p class="mediaDescriptionText">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/14.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/14.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE SKIN AND COLOR THEME</p>
+					<p class="smallLabel">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE SKIN AND COLOR THEME.</p>
+					<p class="mediaDescriptionText">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/15.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/15.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/16.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/17.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/18.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/18.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="smallLabel">Full css support, the text which appear over the thumbnail can be formatted  with CSS.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="mediaDescriptionText">This description window and the info button are optional, each item can have a different description and of course the text can be formatted with CSS.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/19.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/19.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/20.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/21.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/21.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/22.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/22.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/23.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/23.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY.</p>
+					<p class="mediaDescriptionText">This feature allows you to change the size of the thumbnails and the space between thumbnails.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/24.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/25.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/26.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/26.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">AMAZING PERFORMANCE ON MOBILE DEVICES</p>
+					<p class="smallLabel">This gallery is using the GPU (hardware acceleration).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">AMAZING PERFORMANCE ON MOBILE DEVICES.</p>
+					<p class="mediaDescriptionText">This gallery is using the GPU (hardware acceleration), the rendering speed and performance are impeccable on desktop computers and most importantly on mobile devices.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/27.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/27.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/28.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/28.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">ZOOM AND PANNING SUPPORT FOR IMAGES</p>
+					<p class="smallLabel">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">ZOOM AND PANNING SUPPORT FOR IMAGES.</p>
+					<p class="mediaDescriptionText">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/29.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/30.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/30.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">INFO WINDOW AND INFO BUTTON</p>
+					<p class="smallLabel">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">INFO WINDOW AND INFO BUTTON.</p>
+					<p class="mediaDescriptionText">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/31.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/31.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE SKIN AND COLOR THEME</p>
+					<p class="smallLabel">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE SKIN AND COLOR THEME.</p>
+					<p class="mediaDescriptionText">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+			</ul>
+	
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/32.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/33.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/33.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/34.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/34.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/1.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/1.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="smallLabel">Full css support, the text which appear over the thumbnail can be formatted  with CSS.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="mediaDescriptionText">This description window and the info button are optional, each item can have a different description and of course the text can be formatted with CSS.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/2.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/2.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/3.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/4.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/4.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/5.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/5.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/6.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/6.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY.</p>
+					<p class="mediaDescriptionText">This feature allows you to change the size of the thumbnails and the space between thumbnails.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/7.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/8.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/9.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/9.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">AMAZING PERFORMANCE ON MOBILE DEVICES</p>
+					<p class="smallLabel">This gallery is using the GPU (hardware acceleration).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">AMAZING PERFORMANCE ON MOBILE DEVICES.</p>
+					<p class="mediaDescriptionText">This gallery is using the GPU (hardware acceleration), the rendering speed and performance are impeccable on desktop computers and most importantly on mobile devices.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/10.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/10.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/11.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/11.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">ZOOM AND PANNING SUPPORT FOR IMAGES</p>
+					<p class="smallLabel">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">ZOOM AND PANNING SUPPORT FOR IMAGES.</p>
+					<p class="mediaDescriptionText">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/12.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/13.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/13.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">INFO WINDOW AND INFO BUTTON</p>
+					<p class="smallLabel">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">INFO WINDOW AND INFO BUTTON.</p>
+					<p class="mediaDescriptionText">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/14.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/14.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE SKIN AND COLOR THEME</p>
+					<p class="smallLabel">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE SKIN AND COLOR THEME.</p>
+					<p class="mediaDescriptionText">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/15.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/15.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/16.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/17.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/18.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/18.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="smallLabel">Full css support, the text which appear over the thumbnail can be formatted  with CSS.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="mediaDescriptionText">This description window and the info button are optional, each item can have a different description and of course the text can be formatted with CSS.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/19.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/19.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/20.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/21.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/21.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/22.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/22.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/23.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/23.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY.</p>
+					<p class="mediaDescriptionText">This feature allows you to change the size of the thumbnails and the space between thumbnails.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/24.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/25.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/26.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/26.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">AMAZING PERFORMANCE ON MOBILE DEVICES</p>
+					<p class="smallLabel">This gallery is using the GPU (hardware acceleration).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">AMAZING PERFORMANCE ON MOBILE DEVICES.</p>
+					<p class="mediaDescriptionText">This gallery is using the GPU (hardware acceleration), the rendering speed and performance are impeccable on desktop computers and most importantly on mobile devices.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/27.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/27.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/28.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/28.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">ZOOM AND PANNING SUPPORT FOR IMAGES</p>
+					<p class="smallLabel">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">ZOOM AND PANNING SUPPORT FOR IMAGES.</p>
+					<p class="mediaDescriptionText">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/29.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/30.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/30.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">INFO WINDOW AND INFO BUTTON</p>
+					<p class="smallLabel">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">INFO WINDOW AND INFO BUTTON.</p>
+					<p class="mediaDescriptionText">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/31.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/31.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE SKIN AND COLOR THEME</p>
+					<p class="smallLabel">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE SKIN AND COLOR THEME.</p>
+					<p class="mediaDescriptionText">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+			</ul>
+	
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/32.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/33.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/33.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/34.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/34.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/1.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/1.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="smallLabel">Full css support, the text which appear over the thumbnail can be formatted  with CSS.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="mediaDescriptionText">This description window and the info button are optional, each item can have a different description and of course the text can be formatted with CSS.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/2.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/2.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/3.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			   	<li data-type="media" data-url="load/images/4.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/4.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">LOAD MORE THUMBNAILS FEATURE</p>
+					<p class="smallLabel">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">LOAD MORE THUMBNAILS FEATURE.</p>
+					<p class="mediaDescriptionText">This is an awesome feature which improves the overall performance and speed of loading because in this way not all the thumbnails are loaded and displayed at once. For example if you have a total of 120 thumbnails you can show them in sets of 50 thumbnails, and so initially in the grid the first set of 50 thumbnails are loaded and displayed, and when the "load more thumbnails" button is pressed the next set of 50 thumbnails are loaded and displayed, and finally when the "load more thumbnails" button is pressed again the 20 remaining thumbnails are showed. The number of thumbnails to load per set is customizable, it does not have to be 50 it can be any number that you consider. This feature is optional, if it is disabled all thumbnails are loaded and displayed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/5.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/5.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">THUMBNAILS DESCRIPTION</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">THUMBNAILS DESCRIPTION.</p>
+					<p class="mediaDescriptionText">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail, the text can be formatted with CSS, the background color and opacity also can be modified (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/6.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/6.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY</p>
+					<p class="smallLabel">Each thumb can have a short description with a transparent background under it and this description is visible when the mouse is over a thumbnail.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE THUMBNAILS SIZE GEOMETRY.</p>
+					<p class="mediaDescriptionText">This feature allows you to change the size of the thumbnails and the space between thumbnails.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/7.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/8.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/9.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/9.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">AMAZING PERFORMANCE ON MOBILE DEVICES</p>
+					<p class="smallLabel">This gallery is using the GPU (hardware acceleration).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">AMAZING PERFORMANCE ON MOBILE DEVICES.</p>
+					<p class="mediaDescriptionText">This gallery is using the GPU (hardware acceleration), the rendering speed and performance are impeccable on desktop computers and most importantly on mobile devices.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/10.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/10.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/11.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/11.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">ZOOM AND PANNING SUPPORT FOR IMAGES</p>
+					<p class="smallLabel">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">ZOOM AND PANNING SUPPORT FOR IMAGES.</p>
+					<p class="mediaDescriptionText">You can zoom in and out an image and you can pan the image,  in this way you can see the image in great detail (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.youtube.com/watch?v=hTZJbyronE0"></li>
+				<li data-thumbnail-path="load/thumbnails/12.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/13.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/13.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">INFO WINDOW AND INFO BUTTON</p>
+					<p class="smallLabel">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">INFO WINDOW AND INFO BUTTON.</p>
+					<p class="mediaDescriptionText">Each lighbox item can have a description, the text and window appearance can be formatted with CSS (optional).</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-url="load/images/14.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/14.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOMIZABLE SKIN AND COLOR THEME</p>
+					<p class="smallLabel">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOMIZABLE SKIN AND COLOR THEME.</p>
+					<p class="mediaDescriptionText">The entire color theme can be modified, and also the skin can be replcaed with your own.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/15.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/15.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="media" data-width="640" data-height="420" data-url="http://www.vimeo.com/57265765"></li>
+				<li data-thumbnail-path="load/thumbnails/16.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">VIMEO AND YOUTUBE SUPPORT</p>
+					<p class="smallLabel">The grid lightbox can load and play videos from youtube or vimeo easely.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">VIMEO AND YOUTUBE SUPPORT.</p>
+					<p class="mediaDescriptionText">All you have to do is to include the link from YouTube or Vimeo video that you want to display and the lighbox will display and play your video. The size (width and height) of each video can be set easily.</p>
+				</li>
+			</ul>
+			
+			<ul>
+			    <li data-type="link" data-url="http://www.google.com" data-target="_blank"></li>
+				<li data-thumbnail-path="load/thumbnails/17.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM PRESS THUMBNAIL ACTION</p>
+					<p class="smallLabel">When a thumbnail is pressed the grid can open a browser window or the lighbox.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">CUSTOM PRESS THUMBNAIL ACTION.</p>
+					<p class="mediaDescriptionText">When a thumbnail is pressed you can choose either to display an original media lightbox which we have coded, or to open a new webpage, the url and target of this webpage can be specified. The lightbox can display images, or can display videos loaded from YouTube or Vimeo. Also you can set up one or more thumbnails so that a new browser page will be opened when they are pressed. The URL and target for this page can be customized.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/18.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/18.jpg"></li>
+				<li data-thumbnail-text>
+					<p class="largeLabel">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="smallLabel">Full css support, the text which appear over the thumbnail can be formatted  with CSS.</p>
+				</li>
+				<li data-info>
+					<p class="mediaDescriptionHeader">CUSTOM TEXT CAN BE ADDED HERE AND FORMATTED WITH CSS.</p>
+					<p class="mediaDescriptionText">This description window and the info button are optional, each item can have a different description and of course the text can be formatted with CSS.</p>
+				</li>
+			</ul>
+			
+			<ul>
+				<li data-type="media" data-url="load/images/19.jpg"></li>
+				<li data-thumbnail-path="load/thumbnails/19.jpg"></li>
+				<li data-thumbnail-text="">
+					<p class="largeLabel">FLEXIBLE / FLUID LAYOUT</p>
+					<p class="smallLabel">The grid is responsive, You can control the size of the grid with CSS or JavaScript.</p>
+				</li>
+				<li data-info="">
+					<p class="mediaDescriptionHeader">FLEXIBLE / FLUID LAYOUT.</p>
+					<p class="mediaDescriptionText">You can control the size of the grid with CSS or JavaScript, basically it has an adaptable layout which makes it the perfect candidate for any type of project.
+					</p>
+				</li>
+			</ul>
+			
+		</ul>
+	</ul>
+	
+</body>
+</html>
+
+
+
+
