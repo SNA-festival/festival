@@ -10,6 +10,7 @@ from .forms import DocumentForm
 from .models import Post
 from .forms import PostForm
 
+    
 def post_list(request):
     posts = Post.objects.filter(published_date__isnull=False).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -109,3 +110,8 @@ def list(request):
         {'documents': documents, 'formUpload': formUpload},
         context_instance=RequestContext(request)
     )
+    
+def Home(request):
+    #posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    #return render(request, 'blog/post_draft_list.html', {'posts': posts}) 
+    return render(request, 'blog/HomePage.html')
