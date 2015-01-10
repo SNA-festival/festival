@@ -1,15 +1,20 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.forms import ModelForm, Textarea
 
 # Create your models here.
 class Post(models.Model):
-    author = models.ForeignKey(User)
-    title = models.CharField(max_length=200)
-    text1 = models.TextField()
-    set_date = models.DateTimeField(default=timezone.now())
+    # author = models.ForeignKey(User)
+    festival_name = models.CharField(max_length=200)
+    
+    festival_date = models.DateTimeField(default=timezone.now())
+    festival_story = models.TextField(default=None, blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now())
     published_date = models.DateTimeField(blank=True, null=True)
+    
+   
+      
     #docfile = models.FileField(upload_to='mish/%Y/%m/%d', default='DEFAULT VALUE')
 
     def publish(self):
@@ -17,7 +22,7 @@ class Post(models.Model):
         #self.save()
 
     def __unicode__(self):
-        return self.title
+        return self.festival_name
         
 class Document(models.Model):
     docfile = models.FileField(upload_to='documents/%Y/%m/%d')
