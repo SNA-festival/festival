@@ -7,14 +7,7 @@ from .models import Post
 
 class PostForm(forms.ModelForm):
 
-<<<<<<< HEAD
 
-    docfile = forms.FileField(label='Select a file!')
-    
-    class Meta:
-        model = Post
-        fields = ('docfile', 'festival_name','set_date', 'step', 'material', 'tip', 'festival_story',)  
-=======
     
     #text1 = models.TextField()
     # text1 = forms.CharField(label='Your name')
@@ -22,17 +15,17 @@ class PostForm(forms.ModelForm):
     step = forms.CharField()
     tip = forms.CharField()
     material = forms.CharField()
+    docfile = forms.FileField(label='Select a file!')
     #set_date1 = forms.DateTimeField(initial='%m/%d/%y %H:%M:%S')
     
     class Meta:
         model = Post
-        fields = ('festival_name','festival_date', 'festival_story', 'step', 'material', 'tip',)
+        fields = ('docfile', 'festival_name','set_date', 'step', 'material', 'tip', 'festival_story',)
               
         # widgets = {
         #     'text1': Textarea(attrs={'cols': 80, 'rows': 20}),
         # }
 
->>>>>>> f4d185abb2871522c9918a594257136668d4308e
         
 
 class DocumentForm(forms.Form):
