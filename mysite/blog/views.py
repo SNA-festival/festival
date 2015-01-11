@@ -22,11 +22,14 @@ def post_new(request):
    # if 'save' in request.POST:
     if request.method == "POST":
         #save button
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+            print "mish"
             return HttpResponseRedirect(reverse(post_detail, kwargs={'pk': post.pk}))
         
         #upload button    
@@ -34,7 +37,7 @@ def post_new(request):
         if formUpload.is_valid():
             newdoc = Document(docfile = request.FILES['docfile'])
             newdoc.save()
-
+            print "mish22"
             # Redirect to the document list after POST
             return HttpResponseRedirect(".")    
             
