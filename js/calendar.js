@@ -17,23 +17,16 @@ var elem=document.createElement("img");
 
 
 
-    
-
-
 $(document).ready(function(){
     createCalendar();
-    photowall();
-    hide();
-    // $('.changeMonth').live('click', function (){
-    //      changeMonth($(this).attr('id'));
-    //  });
+    inithide();
+    eventbutton();
+   
 });
-// window.onload=function(){
-//     document.getElementById("prevMonth").onclick=changeMonth();
-// }
+
 
 function createCalendar(){
-    
+    $('.photo').remove();
     scrollsmooth();
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
@@ -44,14 +37,24 @@ function createCalendar(){
         else{
             nextMonth = currentMonth+1;
         }
-    
+    if(currentMonth==0){
+            previousMonth = 11;
+        }
+        else{
+            previousMonth = currentMonth-1;
+        }
+    var nullbox;
     var counter = 1;
-    if(lastDateOfMonth+firstDayOfMonth>35)
+    if(lastDateOfMonth+firstDayOfMonth>35){
+        nullbox = 0;
         blocks = 42;
-    else if (lastDateOfMonth+firstDayOfMonth<29)
+    }else if (lastDateOfMonth+firstDayOfMonth<29){
+        nullbox = 14;
         blocks = 28;
-    else 
+    }else{
+        nullbox = 7; 
         blocks = 35;
+    }
     for(var i=0; i<blocks; i++){
         //setup the header with list of days
         if(i==0){
@@ -72,10 +75,10 @@ function createCalendar(){
         }
         else{
             if(counter==1){
-                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg"><dt>感恩節</dt></a></div>');        
+                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg" id="thank" onClick="photowall(this.id);"><dt>感恩節</dt></a></div>');        
                  $('.dayBox').css({backgroundColor : '#FFA488'});
             }else if(counter==25){
-                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg"><dt>聖誕節</dt></a></div>');        
+                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg" id="xmas" onClick="photowall(this.id);"><dt>聖誕節</dt></a></div>');        
                 
             }
             else{
@@ -83,31 +86,23 @@ function createCalendar(){
 
             }
             counter++;
-        
-
         }
-        
-        if(counter==2 && currentMonth== 11){
-            // $('.dayBox').        
-            
-           
-        } 
-        //clear div to stretch out background
         if(i==blocks-1){
             $('#month').append('<div class="clear"></div>');
-        }  
-
+        }
 
     }
-
-
+    for(var j=0; j<nullbox;j++){
+        $('#month').append('<div class="nullBox"></div>');
+    }
+    $('#month').append('<div class="clear"></div>');
     $('#header').append('<div id="createEvent"></div>');
     $('#createEvent').css({backgroundColor : '#FFA488'});
     
     //change bg for current date
     if(currentYear == new Date().getFullYear() && currentMonth == new Date().getMonth()){
-        $('#'+currentDay+'').css({
-            backgroundColor : '#DDEDF0'
+        $('#day'+currentDay+'').css({
+            backgroundColor : 'rgba(70%,70%,90%,0.8)'
         });
     }     
     
@@ -160,10 +155,9 @@ function changeprevMonth(){
         lastDateOfMonth = new Date(currentYear, currentMonth-1, 0).getDate();    
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
+        $("#main").css("display","none");
         createCalendar();
-        $('#photowall').html('');
-        photowall();
-        hide();
+        inithide();
 }
 function changenextMonth(){
         if(currentMonth == 11){ 
@@ -191,30 +185,31 @@ function changenextMonth(){
         lastDateOfMonth = new Date(currentYear, currentMonth+1, 0).getDate();    
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
+        $("#main").css("display","none");
         createCalendar();
-        $('#photowall').html('');
-        photowall();
-        hide();
+        inithide();
 }
 
+function eventbutton(){
+    $('#eventtable').append('<tr><td rowspan="2" width="30%" class="eventimg">img1</td><th width="45%" height="20%" class="eventtitle">title1</th><td width="15%" height="20%" class="eventlocation">location1</td><td width="10%" height="20%" class="eventjoin">join</td></tr><tr><td colspan="3" height="60%" class="eventpeople">5</td></tr>');
 
-function photowall(){
-    $('#photowall').append('<div id="showimg"><p id="back">back</p><img id="dd" src="http://www.pdatw.com/fileup/image/event/111201_xmas_card/pda_card_xmas_02.jpg"></div>');
 }
-function hide(){
-    $('#dd').hide();
+function inithide(){
+    $('.dd').hide();
     $('#back').hide();
       // Hide all DDs inside .faqs
     $('dt').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ // Add class "hover" on dt when hover
-        $('#dd').hide();
+        $('.dd').hide();
         $('#back').hide();
-        $('#dd').slideToggle('normal'); 
-        $('#back').slideToggle('normal');// Toggle dd when the respective dt is clicked
+        $('.dd').slideToggle('normal'); 
+        $('#back').slideToggle('normal');
     }); 
     $('#back').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ // Add class "hover" on dt when hover
-        $('#dd').slideToggle('normal'); 
-        $('#back').slideToggle('normal');// Toggle dd when the respective dt is clicked
+        $('.dd').slideToggle('normal'); 
+        $('#back').slideToggle('normal');
+        // Toggle dd when the respective dt is clicked
     });
+    scrollsmooth();
 }
 
 function scrollsmooth(){
@@ -231,4 +226,44 @@ function scrollsmooth(){
           }
         }
       });
+}
+function showphoto(){
+      // Prepare layout options.
+      var options = {
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('#main'), // Optional, used for some extra CSS styling
+        offset: 2, // Optional, the distance between grid items
+        itemWidth: 210 // Optional, the width of a grid item
+      };
+      // Get a reference to your grid items.
+      var handler = $('#tiles li');
+      
+      // Call the layout function after all images have loaded
+      $('#tiles').imagesLoaded(function() {
+        handler.wookmark(options);
+      });
+}
+function photowall(dayname){
+    $("#main").css("display","block");
+    var ul = document.getElementById("tiles");
+    var li =[];
+    var imgsrc;
+    var whatday;
+    $('.photo').remove();
+    if(dayname=='thank'){
+        imgsrc = "baby.jpg";
+        whatday = "感恩節";
+    }else if(dayname=='xmas'){
+        imgsrc = "cat.jpg";
+        whatday = "聖誕節";
+    }
+    for(var k=0;k<10;k++){
+        li[k] = document.createElement("li");
+        li[k].setAttribute("id", "element"+k);
+        li[k].setAttribute("class", "photo");
+        ul.appendChild(li[k]);
+        $('#element'+k).append('<a data-toggle="modal" data-target="#myModal"><img src="'+imgsrc+'" width="200" height="283"></a><a class="btn btn-primary btn-lg" href="https://www.facebook.com/sharer/sharer.php?u=http://utcs.csie.org/~u10016011/SNA/photowall/baby.jpg">Share on Facebook</a><p>'+whatday+k+'</p>');
+    }
+    showphoto();
+
 }

@@ -35,55 +35,12 @@
   		<div id="calendar"></div>
   	</div>
   </div>
-  <div class="container" id="wall">
+  <div class="container" id="showimg">
     <div id="main">
       <ul id="tiles">
         <!-- These are our grid blocks -->
 
-        <li>
-          <a class="photo" data-toggle="modal" data-target="#myModal">
-            <img src="{% static 'img/baby.jpg' %}" width="200" height="283">
-          </a>
-          <a class="btn btn-primary btn-lg" href="https://www.facebook.com/sharer/sharer.php?u=http://utcs.csie.org/~u10016011/SNA/photowall/baby.jpg" target="_blank">Share on Facebook</a>
-          <p>ttt</p>
-        </li>
-        <li>
-          <a class="photo" data-toggle="modal" data-target="#myModal">
-            <img src="{% static 'img/dog.jpg' %}" width="200" height="300">
-          </a>
-          <p>2</p>
-        </li >
-        <li>
-          <a class="photo">
-            <img src="{% static 'img/cat.jpg' %}" width="200" height="252">
-          </a>
-          <p>page2</p>
-        </li>
-        <li>
-          <a href="owl.jpg" class="photo">
-            <img src="{% static 'img/owl.jpg' %}" width="200" height="158">
-          </a>
-          <p>4</p>
-        </li>
-        <li>
-          <a href="cat.jpg" class="photo" >
-            <img src="{% static 'img/cat.jpg' %}" width="200" height="252">
-          </a>
-          <p>3</p>
-        </li>
-        <li>
-          <a href="cat.jpg" class="photo" >
-            <img src="{% static 'img/cat.jpg' %}" width="200" height="252">
-          </a>
-          <p>3</p>
-        </li>
-        <li>
-          <a href="cat.jpg" class="photo">
-            <img src="{% static 'img/cat.jpg' %}" width="200" height="252">
-          </a>
-          <p>3</p>
-        </li>
-        <!-- End of grid blocks -->
+        
       </ul>
 
     </div>
@@ -104,7 +61,7 @@
           <td class="left"></td>
           <td><table class="popup-contents" id="eventtable">
             <thead><tr>
-              <td colspan="3"><a><span class="glyphicon glyphicon-plus"></span>新增活動</a></td>
+              <td colspan="3"><a href="" data-toggle="modal" data-target="#addevent"><span class="glyphicon glyphicon-plus"></span>新增活動</a></td>
             </tr></thead>
           </table>
           <td class="right"></td>    
@@ -118,7 +75,7 @@
       </table>
   </div>
   <div>
-    <a id="additem" class="scrollup dd" data-toggle="modal" data-target="#addimg"><span class="glyphicon glyphicon-plus-sign"></span>新增習俗</a>
+    <a href=""  id="additem" class="scrollup dd" data-toggle="modal" data-target="#addimg"><span class="glyphicon glyphicon-plus-sign"></span>新增習俗</a>
    </div>
    <div id="backbutton" >
      <div id="showimg"><a id="back" href="#bar" class="scrollup" onClick="closephoto();">
@@ -147,12 +104,13 @@
     </div>
   </div>
 
-   <div class="modal fade" id="addimg" tabindex="-1" role="dialog" aria-labelledby="Modalimg" aria-hidden="true">
+<div class="container">
+  <div class="modal fade" id="addimg" tabindex="-1" role="dialog" aria-labelledby="Modalimg" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="Modalimg">Modal title</h4>
+          <h4 class="modal-title" id="Modalimg">新增習俗</h4>
         </div>
         <div class="modal-body">
           
@@ -160,6 +118,30 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+   <div class="modal fade" id="addevent" tabindex="-1" role="dialog" aria-labelledby="Modalevent" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="Modalevent">新增活動</h4>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
            	
            	
        
@@ -167,10 +149,7 @@
  
 
 {% endblock %}         
-</div>
-      </div>
-    </div>
-  </div>
+
   
  
     </body>
