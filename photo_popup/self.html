@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+
+<!--
+#######################################
+	- THE HEAD PART -
+######################################
+-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<title>MegafolioPro -  The Grid System</title>
+	<link rel="icon" type="image/png" href="images/sitelogo.png" />
+
+
+
+    <!-- commented, remove this line to use IE & iOS favicons -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+
+
+    <!-- get jQuery from the google apis -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.js"></script>
+
+        <!-- THE COLOR PICKER -->
+    <link rel="stylesheet" href="colorpicker/css/colorpicker.css" type="text/css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="colorpicker/css/layout.css" />
+
+	<script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
+    <script type="text/javascript" src="colorpicker/js/eye.js"></script>
+    <script type="text/javascript" src="colorpicker/js/utils.js"></script>
+    <script type="text/javascript" src="colorpicker/js/layout.js?ver=1.0.2"></script>
+
+
+    <!-- THE PREVIEW STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/preview.css" media="screen" />
+
+
+    <!-- MEGAFOLIO PRO GALLERY CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="megafolio/css/settings.css" media="screen" />
+
+
+     <!-- MEGAFOLIO PRO GALLERY JS FILES  -->
+	<script type="text/javascript" src="megafolio/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="megafolio/js/jquery.themepunch.megafoliopro.js"></script>
+
+
+    <!-- THE GOOGLE FONT LOAD -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+
+</head>
+
+
+
+<!--
+#######################################
+	- THE BODY PART -
+######################################
+-->
+<body class="blogpage">
+
+	<div class="bgdiv bg6"></div>
+	<div class="previewheader">
+				<!-- HEADER  -->
+				<div class="top_menu">
+					<div class="topbutton_wrapper">
+						<a href="index-images.html"><div class="topbutton i-image">IMAGES</div></a>
+						<a href="index-metro.html"><div class="topbutton i-metro">METRO</div></a>
+						<a href="index-blog.html"><div class="topbutton i-blog selected">BLOG</div></a>
+						<a href="index-video.html"><div class="topbutton i-media">MEDIA</div></a>
+					</div>
+				</div>
+
+				<!-- LOGO PART -->
+				<div class="logo_wrapper">
+					<div class="logo"></div>
+				</div>
+
+				<!-- SLOGEN PART  -->
+				<div class="slogen_wrapper">
+					<div class="slogen">
+						Megafolio Pro features a large variety of options allowing you to control the layout of your item grid in the way that pleases you most. <br>There is no complicated setup work required, just select your desired style and breathe life into it with your content!
+					</div>
+				</div>
+				<div class="slogenshadow"></div>
+
+				<div class="option-closer">
+					<div class="megatitle">
+						<div class="divide20"></div>
+						TONS OF OPTIONS AND PRESETS
+						<div class="divide45"></div>
+					</div>
+					<div class="opener-wrap">
+					<div class="givetry"></div>
+					<div class="opener"></div>
+
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				<!-- THE SWITCHER PART  -->
+				<div class="switcher">
+
+							<div class="group-1">
+								<div class="buttontitle">Special Grids</div>
+								<div class="order button" data-order="[0]">Random</div>
+								<div class="order button" data-order="[2]">2</div>
+								<div class="order button selected" data-order="[3]">3</div>
+								<div class="order button selected" data-order="[4]">4</div>
+								<div class="order button selected" data-order="[5]">5</div>
+								<div class="order button" data-order="[6]">6</div>
+								<div class="order button selected" data-order="[7]">7</div>
+								<div class="order button" data-order="[8]">8</div>
+								<div class="order button selected" data-order="[9]">9</div>
+							</div>
+							<div class="group-2">
+								<div class="buttontitle">Basic Grids</div>
+								<div class="order button" data-order="[10]">10</div>
+								<div class="order button selected" data-order="[11]">11</div>
+								<div class="order button selected" data-order="[12]">12</div>
+								<div class="order button selected" data-order="[13]">13</div>
+							</div>
+
+							<div class="group-3">
+								<div class="buttontitle">Different Height Grids</div>
+								<div class="order button" data-order="[14]">14</div>
+								<div class="order button" data-order="[15]">15</div>
+								<div class="order button" data-order="[16]">16</div>
+								<div class="order button" data-order="[17]">17</div>
+							</div>
+
+							<div class="group-4">
+								<div class="buttontitle">Paddings</div>
+								<div class="pad_wrap"><input id="ph" class="pad" type="text" value="10"/><span class="pxc">px</span></div>
+								<div class="pad_wrap"><input id="pv" class="pad" type="text" value="10"/><span class="pxc">px</span></div>
+							</div>
+
+							<div class="group-5">
+								<div class="buttontitle">BG Color</div>
+								<div class="color_wrap">
+									<div id="color-Selector">
+										<div style="background-color: #f07f11"></div>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="group-7">
+								<div class="buttontitle">Background Image / Tile</div>
+								<div class="button bgch selected" data-bg="none">None</div>
+								<div class="button bgch" data-bg="bg1">1</div>
+								<div class="button bgch"data-bg="bg2">2</div>
+								<div class="button bgch" data-bg="bg3">3</div>
+								<div class="button bgch" data-bg="bg4">4</div>
+								<div class="button bgch" data-bg="bg5">5</div>
+								<div class="button bgch selected" data-bg="bg6">6</div>
+							</div>
+
+							<div class="group-6">
+								<div class="buttontitle">Animation Types</div>
+								<div class="button animb" data-ant="fade">1</div>
+								<div class="button animb" data-ant="rotate">2</div>
+								<div class="button animb" data-ant="scale">3</div>
+								<div class="button animb selected" data-ant="rotatescale">4</div>
+								<div class="button animb" data-ant="pagetop">5</div>
+								<div class="button animb" data-ant="pagebottom">6</div>
+								<div class="button animb" data-ant="pagemiddle">7</div>
+							</div>
+
+							<div class="group-8">
+								<div class="buttontitle">Speed</div>
+								<div class="pad_wrap longer"><input id="tp-speed" class="pad" type="text" value="600"/></div>
+							</div>
+
+							<div class="group-9">
+								<div class="buttontitle">Rotation <span style="font-size:10px">(99=random)</span></div>
+								<div class="pad_wrap longer"><input id="tp-rotate" class="pad" type="text" value="99"/></div>
+							</div>
+
+							<div class="group-10">
+								<div class="buttontitle">Scale <span style="font-size:10px">(0-1)</span></div>
+								<div class="pad_wrap longer"><input id="tp-scale" class="pad" type="text" value="0.60"/></div>
+							</div>
+
+							<div class="clear"></div>
+							<div class="divide15"></div>
+
+				</div>
+
+				<div class="divider"></div>
+					<div class="filter_padder">
+						<div class="filter_wrapper">
+							<div class="filter selected" data-category="cat-all">ALL</div>
+							<div class="filter" data-category="cat-one">CATEGORY ONE</div>
+							<div class="filter" data-category="cat-two">CATEGORY TWO</div>
+							<div class="filter" data-category="cat-three">CATEGORY THREE</div>
+							<div class="filter last-child" data-category="cat-four">CATEGORY FOUR</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+
+	</div>
+
+
+	<div class="container">
+
+
+				<!-- The GRID System -->
+				<div class="megafolio-container noborder norounded light-bg-entries">
+
+
+						<div class="mega-entry cat-two cat-all" id="mega-entry-1" data-src="images/blog1.jpg" data-width="504" data-height="400" data-lowsize="85">
+
+								<div class="mega-covercaption mega-square-top mega-landscape-left mega-portrait-bottom mega-white mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">Extravagant Style</div>
+									<div class="mega-date">Jan 4, 2013 | Category Two</div>
+									<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...<br/><br/><a href="#">Read the whole story</a></p>
+								</div>
+
+								<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+
+
+						<div class="mega-entry cat-one cat-all"  id="mega-entry-2"  data-src="images/blog2.jpg" data-width="383" data-height="400" data-lowsize="93">
+
+								<div class="mega-covercaption mega-square-bottom mega-landscape-left mega-portrait-bottom mega-white mega-transparent mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">MODERN LIVING</div>
+									<div class="mega-date">Jan 2, 2013 | Category One</div>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
+								</div>
+
+								<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+
+
+						<div class="mega-entry cat-three cat-all"  id="mega-entry-3" data-src="images/blog3.jpg" data-width="556" data-height="400">
+								<div class="mega-covercaption mega-square-bottom mega-landscape-left mega-portrait-bottom mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">High Standards</div>
+								</div>
+								<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+
+						<div class="mega-entry cat-four cat-all"  id="mega-entry-4" data-src="images/blog4.jpg" data-width="339" data-height="400">
+								<div class="mega-covercaption mega-square-top mega-landscape-left mega-portrait-bottom mega-black mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">DESIGNER COUCH</div>
+									<div class="mega-date">Jan 1, 2013 | Category Four</div>
+									<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt...</p>
+								</div>
+								<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+
+						<div class="mega-entry cat-one cat-all"  id="mega-entry-5" data-src="images/blog5.jpg" data-width="368" data-height="400">
+
+								<div class="mega-covercaption mega-square-bottom mega-landscape-left mega-portrait-bottom mega-white mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">Effective Teamwork</div>
+									<div class="mega-date">Dec 28, 2012 | Category One</div>
+								</div>
+
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+
+						<div class="mega-entry cat-two cat-all"  id="mega-entry-6" data-src="images/blog6.jpg" data-width="600" data-height="400">
+
+								<div class="mega-covercaption mega-square-top mega-landscape-left mega-portrait-top mega-black mega-transparent mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">Optimized Planning</div>
+									<div class="mega-date">Dec 23, 2012 | Category Two</div>
+									<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi....</p>
+								</div>
+
+
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+						<div class="mega-entry cat-three cat-all"  id="mega-entry-7" data-src="images/blog7.jpg" data-width="267" data-height="400">
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+						<div class="mega-entry cat-four cat-all"  id="mega-entry-8" data-src="images/blog8.jpg" data-width="375" data-height="400">
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+						<div class="mega-entry cat-two cat-all"  id="mega-entry-9" data-src="images/blog9.jpg" data-width="267" data-height="400">
+
+							<div class="mega-covercaption mega-square-top mega-landscape-left mega-portrait-top mega-withsocialbar mega-smallcaptions">
+								<div class="mega-title">Big City Business</div>
+							</div>
+
+							<div class="mega-socialbar">
+								<span class="mega-leftfloat">Share this</span>
+								<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+								<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+								<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+								<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+								<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+							</div>
+
+						</div>
+						<div class="mega-entry cat-two cat-all"  id="mega-entry-11" data-src="images/blog11.jpg" data-width="463" data-height="400">
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+						<div class="mega-entry cat-three cat-all"  id="mega-entry-12" data-src="images/blog12.jpg" data-width="310" data-height="400">
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+						<div class="mega-entry cat-one cat-all"  id="mega-entry-10" data-src="images/blog10.jpg" data-width="611" data-height="400">
+
+
+
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+						<div class="mega-entry cat-four cat-all"  id="mega-entry-13" data-src="images/blog13.jpg" data-width="600" data-height="400">
+
+							<div class="mega-covercaption mega-square-right mega-landscape-left mega-portrait-bottom mega-white mega-withsocialbar mega-smallcaptions">
+									<div class="mega-title">Timely Support</div>
+									<p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet....</p>
+								</div>
+
+							<div class="mega-socialbar">
+									<span class="mega-leftfloat">Share this</span>
+									<a href="#"><div class="mega-soc mega-facebook mega-leftfloat"></div></a>
+									<a href="#"><div class="mega-soc mega-twitter mega-leftfloat"></div></a>
+									<div class="mega-show-more mega-soc mega-more mega-rightfloat"></div>
+									<a href="#"><div class="mega-soc mega-like mega-rightfloat"><span>2</span></div></a>
+									<a href="#"><div class="mega-soc mega-comments mega-rightfloat"><span>5</span></div></a>
+
+								</div>
+						</div>
+
+
+				</div>
+	</div>
+
+
+		<div class="divide90"></div>
+
+
+		<div class="splash-white">
+			<div class="container">
+
+				<div class="option-closer">
+					<div class="footertitle">
+						<div class="divide0"></div>
+						MORE PREVIEWS
+						<div class="divide45"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<!-- The GRID System -->
+				<div class="megafolio-container-splash noborder norounded dark-bg-entries">
+
+
+						<div class="mega-entry cat-two cat-all" id="mega-entry-1" data-src="images/splashpage/images.jpg" data-width="780" data-height="585" data-lowsize="">
+
+							<div class="mega-hover alone notitle">
+									<a href="index-images.html"><div class="mega-hoverlink"></div></a>
+							</div>
+
+							<div class="gallerycaption-bottom">Image Gallery Grid</div>
+
+						</div>
+
+
+						<div class="mega-entry cat-one cat-all"  id="mega-entry-2"  data-src="images/splashpage/metro.jpg" data-width="780" data-height="385" data-lowsize="">
+
+							<div class="mega-hover alone notitle">
+									<a href="index-metro.html"><div class="mega-hoverlink"></div></a>
+							</div>
+
+							<div class="gallerycaption-bottom">Metro Style Grid</div>
+
+						</div>
+
+
+
+						<div class="mega-entry cat-three cat-all"  id="mega-entry-3" data-src="images/splashpage/blog.jpg" data-width="780" data-height="485">
+
+							<div class="mega-hover alone notitle">
+									<a href="index-blog.html"><div class="mega-hoverlink"></div></a>
+							</div>
+
+							<div class="gallerycaption-bottom">Blog Style Grid</div>
+
+						</div>
+
+
+						<div class="mega-entry cat-four cat-all"  id="mega-entry-4" data-src="images/splashpage/media.jpg" data-width="680" data-height="685">
+
+							<div class="mega-hover alone notitle">
+									<a href="index-video.html"><div class="mega-hoverlink"></div></a>
+							</div>
+
+							<div class="gallerycaption-bottom">Full-Width Media Gallery</div>
+
+						</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Footer -->
+		<div class="top_menu">
+			<div class="footerbutton_wrapper">
+				<a href="http://codecanyon.net/user/themepunch/portfolio?ref=themepunch" target="_blank"><div class="topbutton i-buy red">BUY MEGAFOLIO PRO</div></a>
+				<a href="http://twitter.com/themepunch" target="_blank"><div class="topbutton i-twitter blue">FOLLOW US</div></a>
+				<a href="http://codecanyon.net/user/themepunch/portfolio?ref=themepunch" target="_blank"><div class="topbutton i-portfolio green">MORE FROM THEMEPUNCH</div></a>
+			</div>
+		</div>
+
+
+			<!--
+			##############################
+			 - ACTIVATE THE BANNER HERE -
+			##############################
+			-->
+			<script type="text/javascript">
+
+
+				jQuery(document).ready(function() {
+
+					var ie = jQuery.browser.msie && parseInt(jQuery.browser.version,0)<9;
+					var ie9 = jQuery.browser.msie && parseInt(jQuery.browser.version,0)==9;
+					if (ie) jQuery('body').addClass("ie8");
+					if (ie9) jQuery('body').addClass("ie9");
+
+					jQuery('#color-Selector').ColorPicker({
+						color: '#f07f11',
+						onShow: function (colpkr) {
+							jQuery(colpkr).fadeIn(500);
+							return false;
+						},
+						onHide: function (colpkr) {
+							jQuery(colpkr).fadeOut(500);
+							return false;
+						},
+						onChange: function (hsb, hex, rgb) {
+
+							jQuery('body').css('background-color', '#' + hex);
+							jQuery('.bgdiv').css('background-color','#'+hex);
+						}
+					});
+
+
+					var api=jQuery('.megafolio-container').megafoliopro(
+						{
+							filterChangeAnimation:"scale",			// fade, rotate, scale, rotatescale, pagetop, pagebottom,pagemiddle
+							filterChangeSpeed:400,					// Speed of Transition
+							filterChangeRotate:99,					// If you ue scalerotate or rotate you can set the rotation (99 = random !!)
+							filterChangeScale:0.6,					// Scale Animation Endparameter
+							delay:20,
+							defaultWidth:980,
+							paddingHorizontal:10,
+							paddingVertical:10,
+							layoutarray:[9,11,5,3,7,12,4,6,13]		// Defines the Layout Types which can be used in the Gallery. 2-9 or "random". You can define more than one, like {5,2,6,4} where the first items will be orderd in layout 5, the next comming items in layout 2, the next comming items in layout 6 etc... You can use also simple {9} then all item ordered in Layout 9 type.
+						});
+
+
+					jQuery('.megafolio-container-splash').megafoliopro(
+						{
+							filterChangeAnimation:"scale",			// fade, rotate, scale, rotatescale, pagetop, pagebottom,pagemiddle
+							filterChangeSpeed:400,					// Speed of Transition
+							filterChangeRotate:99,					// If you ue scalerotate or rotate you can set the rotation (99 = random !!)
+							filterChangeScale:0.6,					// Scale Animation Endparameter
+							delay:20,
+							defaultWidth:980,
+							paddingHorizontal:10,
+							paddingVertical:10,
+							layoutarray:[11]		// Defines the Layout Types which can be used in the Gallery. 2-9 or "random". You can define more than one, like {5,2,6,4} where the first items will be orderd in layout 5, the next comming items in layout 2, the next comming items in layout 6 etc... You can use also simple {9} then all item ordered in Layout 9 type.
+						});
+
+					jQuery('.order').click(function()  {
+						jQuery('.order').each(function() { jQuery(this).removeClass("selected")});
+						api.megaremix(jQuery(this).data('order'));
+						jQuery(this).addClass("selected");
+					});
+
+					jQuery('.animb').click(function()  {
+						var speed=jQuery('#tp-speed').val();
+						var rotate=jQuery('#tp-rotate').val();
+						var scale=jQuery('#tp-scale').val();
+						jQuery('.animb').each(function() { jQuery(this).removeClass("selected")});
+						api.megaanimchange(jQuery(this).data('ant'),speed,rotate,scale);
+						jQuery(this).addClass("selected");
+					});
+
+					jQuery('.filter').click(function() {
+						jQuery('.filter').each(function() { jQuery(this).removeClass("selected")});
+						api.megafilter(jQuery(this).data('category'));
+						jQuery(this).addClass("selected");
+					});
+
+
+					jQuery(".pad").change(function() {
+						var mc = jQuery('.megafolio-container');
+						mc.data('paddingh',jQuery("#ph").val());
+						mc.data('paddingv',jQuery("#pv").val());
+						api.megaremix(api.megagetcurrentorder());
+					});
+
+					jQuery(".opener").click(function() {
+						var op=jQuery(this);
+						if (op.hasClass('active'))	{
+							op.removeClass('active');
+							jQuery('.switcher').slideUp(600);
+							jQuery('.megatitle').slideDown(600);
+							jQuery('.givetry').slideDown(600);
+						} else {
+							op.addClass('active');
+							jQuery('.switcher').slideDown(600);
+							jQuery('.megatitle').slideUp(600);
+							jQuery('.givetry').slideUp(600);
+						}
+					})
+
+					jQuery('.bgch').click(function() {
+						var oldbg=jQuery('.bgch.selected');
+						var newbg=jQuery(this);
+						jQuery('.bgdiv').removeClass(oldbg.data('bg')).removeClass("bg6");
+						jQuery('.bgdiv').addClass(newbg.data('bg'));
+						oldbg.removeClass("selected");
+						newbg.addClass("selected");
+
+					});
+
+
+
+				});
+
+			</script>
+
+
+
+			<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+	</body>
+</html>

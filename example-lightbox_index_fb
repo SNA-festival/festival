@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="An very basic example of how to use the Wookmark jQuery plug-in.">
+  <meta name="author" content="Christoph Ono, Sebastian Helzle">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- CSS Reset -->
+  <link rel="stylesheet" href="css/reset.css">
+
+  <!-- Magnific popup styles -->
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <!-- Global CSS for the page and tiles -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+ 
+
+</head>
+
+<body>
+
+  <div id="container">
+    <div id="main" role="main">
+
+      <ul id="tiles">
+        <!-- These are our grid blocks -->
+        <li>
+          <!-- Button trigger modal -->
+          <a href="baby.jpg" class="photo" data-toggle="modal" data-target="#myModal">
+            <img src="baby.jpg" width="200" height="283">
+          </a>
+          <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" href="https://www.facebook.com/sharer/sharer.php?u=http://utcs.csie.org/~u10016011/SNA/photowall/baby.jpg" target="_blank">Share on Facebook</a>
+          <p>1</p>
+        </li>
+        <li>
+          <a href="dog.jpg" class="photo">
+            <img src="dog.jpg" width="200" height="300">
+          </a>
+          <p>2</p>
+        </li>
+        <li>
+          <a href="cat.jpg" class="photo">
+            <img src="cat.jpg" width="200" height="252">
+          </a>
+          <p>3</p>
+        </li>
+        <li>
+          <a href="owl.jpg" class="photo">
+            <img src="owl.jpg" width="200" height="158">
+          </a>
+          <p>4</p>
+        </li>
+        <!-- End of grid blocks -->
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- include jQuery -->
+  <script src="js/jquery.min.js"></script>
+
+  <!-- Include the imagesLoaded plug-in -->
+  <script src="js/jquery.imagesloaded.js"></script>
+
+  <!-- include magnific popup -->
+  <script src="js/jquery.magnific-popup.min.js"></script>
+
+  <!-- Include the plug-in -->
+  <script src="js/jquery.wookmark.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Once the page is loaded, initalize the plug-in. -->
+  <script type="text/javascript">
+    (function ($){
+      // Prepare layout options.
+      var options = {
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('#main'), // Optional, used for some extra CSS styling
+        offset: 2, // Optional, the distance between grid items
+        itemWidth: 210 // Optional, the width of a grid item
+      };
+      // Get a reference to your grid items.
+      var handler = $('#tiles li');
+          // Init lightbox
+
+      // $('.photo').bPopup({
+
+      // easing: 'easeOutBack', //uses jQuery easing plugin
+      //       speed: 450,
+      //       transition: 'slideDown'
+           
+      //   });
+
+      // $('#tiles').magnificPopup({
+      //   delegate: 'li:not(.inactive) a.photo ',
+      //   type: 'image',
+      //   gallery: {
+      //     enabled: true
+      //   }
+      // });
+      // Call the layout function after all images have loaded
+      $('#tiles').imagesLoaded(function() {
+        handler.wookmark(options);
+      });
+    })(jQuery);
+    </script>
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>
