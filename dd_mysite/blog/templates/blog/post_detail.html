@@ -1,0 +1,25 @@
+{% extends 'mysite/base.html' %}
+{% load future %}
+
+{% block content %}
+    <div class="date">
+    {% if post.published_date %}
+        {{ post.published_date }}
+    {% else %}
+        <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+    {% endif %}
+    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+    </div>
+    <h1>{{ post.festival_name }}</h1>
+    <p>關於節慶的小故事</p>
+    <p>{{ post.festival_story }}</p>
+    <p>這個節慶在什麼時間</p>
+    <p>{{ post.set_date }}</p>
+    <p>這個習俗的步驟</p>
+    <p>{{ post.step }}</p>
+    <p>這個習俗的小撇步</p>
+    <p>{{ post.tip }}</p>
+    <p>這個習俗需要什麼工具</p>
+    <p>{{ post.material }}</p>
+{% endblock %}
