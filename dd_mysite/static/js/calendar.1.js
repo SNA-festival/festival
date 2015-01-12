@@ -18,11 +18,11 @@ var calendarData = {};
 
 
 $(document).ready(function(){
+    $('#background').fadeIn(2000);
     createCalendar();
     inithide();
     eventbutton();
     bubbleinfo();
-   
 });
 
 
@@ -31,14 +31,14 @@ function createCalendar(){
     scrollsmooth();
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
-
+    var blocks;
     if(currentMonth==11){
             nextMonth = 0;
         }
         else{
             nextMonth = currentMonth+1;
         }
-    if(currentMonth==0){
+    if(currentMonth===0){
             previousMonth = 11;
         }
         else{
@@ -58,13 +58,13 @@ function createCalendar(){
     }
     for(var i=0; i<blocks; i++){
         //setup the header with list of days
-        if(i==0){
-            $('#header').append('<p class="months"><span id="prevMonth" onclick="changeprevMonth();" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="changenextMonth();"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/>');
+        if(i===0){
+            $('#header').append('<p class="months"><span id="prevMonth" onclick="fadeoutpre()" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="fadeoutnext()"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/><div id="week"></div>');
         }
         if(i<7){
-            $('#header').append('<div class="dayName"><p>'+dayList[i]+'</p></div>');
+            $('#week').append('<div class="dayName"><p>'+dayList[i]+'</p></div>');
         }
-        if(i%7==0){
+        if(i%7===0){
             $('#month').append('<div class="clear"></div>');
         } 
         //create a box for each day within the #month div
@@ -126,10 +126,17 @@ function createCalendar(){
 function showevent(){
     var elem=document.createElement("a");
     elem.setAttribute("href","http://stackoverflow.com/questions/18500759/createelement-a-href-variable1variable2-a");
-    elem.appendChild(document.createTextNode("w"));
+    elem.appendChild(document.createTextNode("q"));
     document.getElementById("day10").appendChild(elem);
 }
-
+function fadeoutnext(){
+    $('#calendar').fadeOut(800);
+    window.setTimeout(changenextMonth, 800);
+}
+function fadeoutpre(){
+     $('#calendar').fadeOut(800);
+    window.setTimeout(changeprevMonth, 800);
+}
 function changeprevMonth(){
 
         if(currentMonth == 0){ 
@@ -140,7 +147,7 @@ function changeprevMonth(){
          currentMonth = currentMonth-1;
         }
 
-        if(currentMonth==0)
+        if(currentMonth===0)
             previousMonth = 11;
         else{          
             previousMonth = currentMonth-1;
@@ -158,6 +165,7 @@ function changeprevMonth(){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         $("#main").css("display","none");
+        $('#calendar').fadeIn(800);
         createCalendar();
         inithide();
 }
@@ -188,6 +196,7 @@ function changenextMonth(){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         $("#main").css("display","none");
+        $('#calendar').fadeIn(800);
         createCalendar();
         inithide();
 }
@@ -258,7 +267,7 @@ function photowall(dayname){
         imgsrc = "../../../../static/img/cat.jpg";
         whatday = "感恩節";
     }else if(dayname=='xmas'){
-        imgsrc = "../../../../static/img/owl.jpg";
+        imgsrc = "../../../../static/img/baby.jpg";
         whatday = "聖誕節";
     }
     for(var k=0;k<10;k++){
@@ -266,7 +275,7 @@ function photowall(dayname){
         li[k].setAttribute("id", "element"+k);
         li[k].setAttribute("class", "photo");
         ul.appendChild(li[k]);
-        $('#element'+k).append('<img  onClick="chmodal(this.id); data-toggle="modal" data-target="#myModal" src="'+imgsrc+'"><p>'+whatday+'</p>');
+        $('#element'+k).append('<img  onClick="chmodal(this.id); data-toggle="modal" data-target="#myModal" src="'+imgsrc+'" width="190px" height="autoResize"><p>'+whatday+'</p>');
     }
     showphoto();
 
