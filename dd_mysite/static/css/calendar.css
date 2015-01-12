@@ -6,6 +6,7 @@ body{
     padding: 0;
     background-image: url("../img/bg.jpg");
     background-size: cover;
+    display: none;
 }
 #calendar{
     height: auto;
@@ -27,8 +28,7 @@ body{
 }
 
 #month{
-    padding: auto;
-    margin: auto;
+    margin-left:100px;
 }
 
 #currentMonth{
@@ -51,12 +51,14 @@ body{
 }
 
 #header div{
-
+    text-align: center;
+    font-weight:300;
     display: inline-block;
 }
-#today{
-
+#week{
+    margin-left:100px;
 }
+
 .dayName p{
     margin: 2px;
     width: 120px;
