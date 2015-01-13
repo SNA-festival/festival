@@ -22,20 +22,13 @@ var date = currentMonth;//.slice(1,2);
 // date = document.write(date.concat(currentYear))
 
 $(document).ready(function(){
-<<<<<<< HEAD:mysite/static/js/calendar.1.js
+
     $('#background').fadeIn(1000);
-=======
-    $('#background').fadeIn(2000);
->>>>>>> 716fb2fce5824691d49a9459f5058886eb4ec2f9:dd_mysite/static/js/calendar.1.js
+
     createCalendar();
     inithide();
     eventbutton();
-    bubbleinfo();
-<<<<<<< HEAD:mysite/static/js/calendar.1.js
-    
-   
-=======
->>>>>>> 716fb2fce5824691d49a9459f5058886eb4ec2f9:dd_mysite/static/js/calendar.1.js
+
 });
 
 
@@ -44,12 +37,9 @@ function createCalendar(){
     scrollsmooth();
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
-<<<<<<< HEAD:mysite/static/js/calendar.1.js
-    
 
-=======
     var blocks;
->>>>>>> 716fb2fce5824691d49a9459f5058886eb4ec2f9:dd_mysite/static/js/calendar.1.js
+
     if(currentMonth==11){
             nextMonth = 0;
         }
@@ -77,12 +67,9 @@ function createCalendar(){
     
     
     for(var i=0; i<blocks; i++){
-        //setup the header with list of days
-<<<<<<< HEAD:mysite/static/js/calendar.1.js
-        if(i==0){
-=======
+
         if(i===0){
->>>>>>> 716fb2fce5824691d49a9459f5058886eb4ec2f9:dd_mysite/static/js/calendar.1.js
+
             $('#header').append('<p class="months"><span id="prevMonth" onclick="fadeoutpre()" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="fadeoutnext()"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/><div id="week"></div>');
         }
         if(i<7){
@@ -156,7 +143,7 @@ function fadeoutpre(){
 }
 //翔翔 這裡是在月曆上面印出節日的名字!  //在HTML適當的位置放入值
 function showevent(){
-<<<<<<< HEAD:mysite/static/js/calendar.1.js
+
     var mon= [];
     var whatdday=[];
     var whatmon=[];
@@ -194,12 +181,7 @@ function showevent(){
         }
     }
     
-=======
-    var elem=document.createElement("a");
-    elem.setAttribute("href","http://stackoverflow.com/questions/18500759/createelement-a-href-variable1variable2-a");
-    elem.appendChild(document.createTextNode("q"));
-    document.getElementById("day10").appendChild(elem);
->>>>>>> 716fb2fce5824691d49a9459f5058886eb4ec2f9:dd_mysite/static/js/calendar.1.js
+
 }
 function fadeoutnext(){
     $('#calendar').fadeOut(800);
@@ -334,18 +316,9 @@ function photowall(dayname){
     var li =[];
     var imgsrc="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg"
     $('.photo').remove();
-<<<<<<< HEAD:mysite/static/js/calendar.1.js
     var whatday=$('.'+dayname)[0].innerHTML;
     alert(dayname);
-=======
-    if(dayname=='thank'){
-        imgsrc = "../../../../static/img/cat.jpg";
-        whatday = "感恩節";
-    }else if(dayname=='xmas'){
-        imgsrc = "../../../../static/img/baby.jpg";
-        whatday = "聖誕節";
-    }
->>>>>>> 716fb2fce5824691d49a9459f5058886eb4ec2f9:dd_mysite/static/js/calendar.1.js
+
     for(var k=0;k<10;k++){
         li[k] = document.createElement("li");
         li[k].setAttribute("id", "element"+k);
