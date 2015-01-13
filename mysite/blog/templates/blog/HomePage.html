@@ -27,9 +27,13 @@
   <script type="text/javascript" src="{% static 'js/jquery.wookmark.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
   
- 
+ <script type="text/javascript" src="{% static 'js/mootools-1.2.4-core.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/mootools-1.2.4.4-more.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/calendar-eightysix-v1.2.js' %}"></script>
 
-    
+    <link rel="stylesheet" type="text/css" href="{% static 'css/calendar-eightysix-v1.1-default.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/calendar-eightysix-v1.1-vista.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/calendar-eightysix-v1.1-osx-dashboard.css' %}" media="screen" />
 
 
 </head>
@@ -39,11 +43,11 @@
 	<script type="text/javascript">
     	
       	window.addEvent('domready', function() {
-      		new CalendarEightysix('wtffffff', { 'offsetY': -4 });
+      		new CalendarEightysix('exampleI', { 'offsetY': -4 });
       	});	
     </script>
 	
-
+<input id="exampleI"/>
 	
 
   	<!--<div class="container" id="background">-->
