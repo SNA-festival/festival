@@ -12,5 +12,7 @@
     <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
     </div>
     <h1>{{ post.title }}</h1>
-    <p>{{ post.text1 }}</p>
+    <!--<p style='font-family:verdana; font-size:16;'>{{ post.text1 }}</p>-->
+    <p style="layout-grid-mode:char"><span style="font-family:微軟正黑體">{{ post.text1 }}</span><span lang="zh-CN">
+        
 {% endblock %}

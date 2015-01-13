@@ -6,7 +6,8 @@
         <div class="post">
             <small class="date">created: {{ post.created_date|date:'d-m-Y' }}</small>
             <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text1|truncatechars:200 }}</p>
+            <!--<p style="font: 16pt courier">{{ post.text1|truncatechars:200 }}</p>-->
+            <p style="layout-grid-mode:char"><span style="font-family:微軟正黑體">{{ post.text1|truncatechars:200 }}</span><span lang="zh-CN">
         </div>
     {% endfor %}
 {% endblock %}
