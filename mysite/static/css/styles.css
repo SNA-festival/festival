@@ -11,7 +11,18 @@ body{
 }
 
 
-
+p.post{
+	display:none;
+}
+p.date{
+	display:none;
+}
+p.title{
+	display:none;
+}
+/*p.file{*/
+/*	display:none;*/
+/*}*/
 h1{
 	background-color:#292929;
 	border-bottom:1px solid #222222;
@@ -71,14 +82,14 @@ a.scrollup:hover{
 	font-weight:600;
 	color: #FF3385;
 }
-#event{
-	color:#666699;
-	text-decoration:none;
-	text-align:center;
-	position:fixed;
-	bottom:10px;
-	right:120px;
-}
+/*#event{*/
+/*	color:#666699;*/
+/*	text-decoration:none;*/
+/*	text-align:center;*/
+/*	position:fixed;*/
+/*	bottom:10px;*/
+/*	right:120px;*/
+/*}*/
 
 .evebutton{
 	font-size:18px;
@@ -99,7 +110,7 @@ a.scrollup:hover{
 	text-decoration:none;
 	position:fixed;
 	bottom:10px;
-	right:220px;
+	right:120px;
 	font-weight:500;
 }
 a#additem:hover{

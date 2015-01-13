@@ -18,9 +18,9 @@
 			<ul>
 			{% for document in documents %}
 			
-				<!--<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>-->
+				<a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a>
 				<!--<li><img src="{{ document.docfile.url }}" width="42" height="42"></li>-->
-				<img src="{{ document.docfile.url }}" width="420" height="320">
+				<!--<img src="{{ document.docfile.url }}" width="420" height="320">-->
 				
 			{% endfor %}
 			</ul>

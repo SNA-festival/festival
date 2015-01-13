@@ -1,22 +1,24 @@
 body{
     font-family: arial,tahoma,sans-serif;
+    margin-top:60px;
 }
 #background{
     margin: 0;
     padding: 0;
     background-image: url("../img/bg.jpg");
     background-size: cover;
+    display: none;
 }
 #calendar{
     height: auto;
     width: 80%;
-    padding: 0px auto 0px auto;
-    margin: 0px auto 10px auto;
+    padding: auto;
+    
+    margin: auto;
     background-image:url("../img/boarder2.png");
     position: relative;
     display: none;
     background-size: cover;
-    
 }
 
 .months{
@@ -28,7 +30,7 @@ body{
 }
 
 #month{
-    width: 100%;
+    margin-left:100px;
 }
 
 #currentMonth{
@@ -51,23 +53,25 @@ body{
 }
 
 #header div{
-
+    text-align: center;
+    font-weight:300;
     display: inline-block;
 }
-#today{
-
+#week{
+    margin-left:100px;
 }
+
 .dayName p{
     margin: 2px;
     width: 120px;
     font-size: .9em;
     font-weight: bold;
-    padding: 1px;
+    padding: auto;
     text-align: center;
 }
 
 .dayBox {
-    width: 120px;
+    width: 12%;
     height: 120px;
     float: left;
     margin: 2px;
@@ -79,7 +83,7 @@ body{
 
 .empty {
 
-    width: 120px;
+    width: 12%;
     height: 120px;
     float: left;
     margin: 2px;
@@ -88,7 +92,7 @@ body{
 
 }
 .nullBox{
-    width: 120px;
+    width: 12%;
     height: 120px;
     float: left;
     margin: 2px;

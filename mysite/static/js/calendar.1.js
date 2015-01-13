@@ -15,13 +15,19 @@ var monthSelector = "";
 var calendarData = {};
 
 
-
+var date = currentMonth;//.slice(1,2);
+// date = document.write(date.concat(". "))
+// date = document.write(date.concat(currentDate))
+// date = document.write(date.concat(", "))
+// date = document.write(date.concat(currentYear))
 
 $(document).ready(function(){
+    $('#background').fadeIn(1000);
     createCalendar();
     inithide();
     eventbutton();
     bubbleinfo();
+    
    
 });
 
@@ -31,6 +37,7 @@ function createCalendar(){
     scrollsmooth();
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
+    
 
     if(currentMonth==11){
             nextMonth = 0;
@@ -56,13 +63,15 @@ function createCalendar(){
         nullbox = 7; 
         blocks = 35;
     }
+    
+    
     for(var i=0; i<blocks; i++){
         //setup the header with list of days
         if(i==0){
-            $('#header').append('<p class="months"><span id="prevMonth" onclick="changeprevMonth();" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="changenextMonth();"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/>');
+            $('#header').append('<p class="months"><span id="prevMonth" onclick="fadeoutpre()" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="fadeoutnext()"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/><div id="week"></div>');
         }
         if(i<7){
-            $('#header').append('<div class="dayName"><p>'+dayList[i]+'</p></div>');
+            $('#week').append('<div class="dayName"><p>'+dayList[i]+'</p></div>');
         }
         if(i%7==0){
             $('#month').append('<div class="clear"></div>');
@@ -122,12 +131,53 @@ function createCalendar(){
     //display calender after it's built
     $('#calendar').css('display', 'block');      
 }
-//翔翔 這裡是在月曆上面印出節日的名字!
+function fadeoutnext(){
+    $('#calendar').fadeOut(800);
+    window.setTimeout(changenextMonth, 800);
+}
+function fadeoutpre(){
+     $('#calendar').fadeOut(800);
+    window.setTimeout(changeprevMonth, 800);
+}
+//翔翔 這裡是在月曆上面印出節日的名字!  //在HTML適當的位置放入值
 function showevent(){
-    var elem=document.createElement("a");
-    elem.setAttribute("href","http://stackoverflow.com/questions/18500759/createelement-a-href-variable1variable2-a");
-    elem.appendChild(document.createTextNode("w"));
-    document.getElementById("day10").appendChild(elem);
+    var mon= [];
+    var whatdday=[];
+    var whatmon=[];
+    var printthis=[];
+    var elem=[];
+    for(var i=0;i<$('.post').length;i++){
+        
+        mon[i]= $('.date')[i].innerHTML.substring(0, 3);
+        
+        
+        if(mon[i]=="Jan"){
+            whatmon[i]=0;
+        }
+        
+        if ($('.date')[i].innerHTML.charAt(6)==","){
+            whatdday[i]= $('.date')[i].innerHTML.substring(5,6);
+            
+        }    
+        if ($('.date')[i].innerHTML.charAt(7)==","){
+            whatdday[i]= $('.date')[i].innerHTML.substring(5,7);
+            
+        }
+        printthis[i]="day"+whatdday[i];
+        
+        elem[i]=document.createElement("a");
+        elem[i].setAttribute("href","#showimg");
+        elem[i].setAttribute("id",$('.post')[i].innerHTML);
+        elem[i].setAttribute("class","dt");
+        elem[i].setAttribute("onClick","photowall(this.id)");
+        
+        if(whatmon[i]==currentMonth){
+            elem[i].appendChild(document.createTextNode($('.post')[i].innerHTML));
+            document.getElementById(printthis[i]).appendChild(elem[i]);
+            $('#wtffffff').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.title')[i].innerHTML+'</p>');
+        }
+    }
+    
 }
 
 function changeprevMonth(){
@@ -158,6 +208,7 @@ function changeprevMonth(){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         $("#main").css("display","none");
+        $('#calendar').fadeIn(800);
         createCalendar();
         inithide();
 }
@@ -188,6 +239,7 @@ function changenextMonth(){
         monthSelector = currentYear+'-'+(new Date(currentYear,currentMonth).getMonth());
         $('#calendar').html('');
         $("#main").css("display","none");
+        $('#calendar').fadeIn(800);
         createCalendar();
         inithide();
 }
@@ -201,7 +253,7 @@ function inithide(){
     $('.dd').hide();
     $('#back').hide();
       // Hide all DDs inside .faqs
-    $('dt').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ // Add class "hover" on dt when hover
+    $('.dt').hover(function(){$(this).addClass('hover')},function(){$(this).removeClass('hover')}).click(function(){ // Add class "hover" on dt when hover
         $('.dd').hide();
         $('#back').hide();
         $('.dd').slideToggle('normal'); 
@@ -251,81 +303,72 @@ function photowall(dayname){
     $("#main").css("display","block");
     var ul = document.getElementById("tiles");
     var li =[];
-    var imgsrc;
-    var whatday;
+    var imgsrc="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg"
     $('.photo').remove();
-    if(dayname=='thank'){
-        imgsrc = "../../../../static/img/cat.jpg";
-        whatday = "感恩節";
-    }else if(dayname=='xmas'){
-        imgsrc = "../../../../static/img/owl.jpg";
-        whatday = "聖誕節";
-    }
+    var whatday=$('.'+dayname)[0].innerHTML;
+    alert(dayname);
     for(var k=0;k<10;k++){
         li[k] = document.createElement("li");
         li[k].setAttribute("id", "element"+k);
         li[k].setAttribute("class", "photo");
         ul.appendChild(li[k]);
-        $('#element'+k).append('<img  onClick="chmodal(this.id); data-toggle="modal" data-target="#myModal" src="'+imgsrc+'"><p>'+whatday+'</p>');
+        $('#element'+k).append('<img  onClick="chmodal(this.id); data-toggle="modal" data-target="#myModal" src="'+imgsrc+'" width="190px" height="autoResize"><p>'+whatday+'</p>');
     }
     showphoto();
 
 }
-function bubbleinfo() {
-        $('.bubbleInfo').each(function () {
-            var distance = 10;
-            var time = 250;
-            var hideDelay = 300;
+// function bubbleinfo() {
+//         $('.bubbleInfo').each(function () {
+//             var distance = 10;
+//             var time = 250;
+//             var hideDelay = 300;
 
-            var hideDelayTimer = null;
+//             var hideDelayTimer = null;
 
-            var beingShown = false;
-            var shown = false;
-            var trigger = $('.trigger', this);
-            var info = $('.popup', this).css('opacity', 0);
+//             var beingShown = false;
+//             var shown = false;
+//             var trigger = $('.trigger', this);
+//             var info = $('.popup', this).css('opacity', 0);
 
 
-            $([trigger.get(0), info.get(0)]).mouseover(function () {
-                if (hideDelayTimer) clearTimeout(hideDelayTimer);
-                if (beingShown || shown) {
-                    // don't trigger the animation again
-                    return;
-                } else {
-                    // reset position of info box
-                    beingShown = true;
+//             $([trigger.get(0), info.get(0)]).mouseover(function () {
+//                 if (hideDelayTimer) clearTimeout(hideDelayTimer);
+//                 if (beingShown || shown) {
+//                     // don't trigger the animation again
+//                     return;
+//                 } else {
+//                     // reset position of info box
+//                     beingShown = true;
 
-                    info.css({
-                        top: -100,
-                        left: -230,
-                        display: 'block'
-                    }).animate({
-                        top: '-=' + distance + 'px',
-                        opacity: 1
-                    }, time, 'swing', function() {
-                        beingShown = false;
-                        shown = true;
-                    });
-                }
+//                     info.css({
+//                         top: -100,
+//                         left: -230,
+//                         display: 'block'
+//                     }).animate({
+//                         top: '-=' + distance + 'px',
+//                         opacity: 1
+//                     }, time, 'swing', function() {
+//                         beingShown = false;
+//                         shown = true;
+//                     });
+//                 }
 
-                return false;
-            }).mouseout(function () {
-                if (hideDelayTimer) clearTimeout(hideDelayTimer);
-                hideDelayTimer = setTimeout(function () {
-                    hideDelayTimer = null;
-                    info.animate({
-                        top: '-=' + distance + 'px',
-                        opacity: 0
-                    }, time, 'swing', function () {
-                        shown = false;
-                        info.css('display', 'none');
-                    });
+//                 return false;
+//             }).mouseout(function () {
+//                 if (hideDelayTimer) clearTimeout(hideDelayTimer);
+//                 hideDelayTimer = setTimeout(function () {
+//                     hideDelayTimer = null;
+//                     info.animate({
+//                         top: '-=' + distance + 'px',
+//                         opacity: 0
+//                     }, time, 'swing', function () {
+//                         shown = false;
+//                         info.css('display', 'none');
+//                     });
 
-                }, hideDelay);
+//                 }, hideDelay);
 
-                return false;
-            });
-        });
-    }
-function chmodal(whatpic){
-    
-} 
+//                 return false;
+//             });
+//         });
+//     }

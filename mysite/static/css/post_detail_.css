@@ -1,0 +1,23 @@
+body{
+    text-align:center;
+} 
+
+.panel{
+    width: 50%;
+    height: 50%;
+    border: 1px solid #c3c3c3;
+    text-align:center;
+    padding: 100px 
+}
+
+/*.scroll_b {*/
+/*    border-radius: 10px;*/
+/*    height: auto;*/
+/*    width: 80%;*/
+/*    background-color: #fff;*/
+/*    position: relative;*/
+/*    overflow: scroll;*/
+/*    text-align:center;*/
+/*}*/
+
+

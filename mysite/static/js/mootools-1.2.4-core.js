@@ -18,8 +18,7 @@ inspiration:
 provides: [Mootools, Native, Hash.base, Array.each, $util]
 
 ...
-// */
-// alert("I am an alert box!");
+*/
 
 var MooTools = {
 	'version': '1.2.4',

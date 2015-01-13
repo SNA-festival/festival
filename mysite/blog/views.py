@@ -26,7 +26,7 @@ def post_new(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            #post.author = request.user
             post.save()
             newdoc = Document(docfile = request.FILES['docfile'])
             newdoc.save()
@@ -83,7 +83,7 @@ def post_edit(request, pk):
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            #post.author = request.user
             post.save()
             return HttpResponseRedirect(reverse(post_detail, kwargs={'pk': post.pk}))
     else:
@@ -117,4 +117,42 @@ def list(request):
 def Home(request):
     #posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     #return render(request, 'blog/post_draft_list.html', {'posts': posts}) 
-    return render(request, 'blog/HomePage.html')
+    posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
+    
+    if request.method == "POST":
+        #save button
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            #post.author = request.user
+            post.save()
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+            print "mish"
+            return HttpResponseRedirect(reverse(post_detail, kwargs={'pk': post.pk}))
+        
+        #upload button    
+        formUpload = DocumentForm(request.POST, request.FILES)
+        if formUpload.is_valid():
+            newdoc = Document(docfile = request.FILES['docfile'])
+            newdoc.save()
+            print "mish22"
+            # Redirect to the document list after POST
+            return HttpResponseRedirect(".")    
+            
+    else:
+        form = PostForm()
+        formUpload = DocumentForm() # A empty, unbound form
+
+    # Load documents for the list page
+    #documents = Document.objects.all()
+    #documents = Document.objects.order_by('documents/%Y/%m/%d').first()
+    #documents = Document.objects.latest('pub_date')
+    documents = Document.objects.order_by('id').reverse()[:1]
+    
+ 
+    return render_to_response(
+    'blog/HomePage.html',
+    {'documents': documents, 'formUpload': formUpload, 'posts': posts, 'form': form},
+    context_instance=RequestContext(request)
+    )
