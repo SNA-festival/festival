@@ -1,0 +1,161 @@
+{% extends 'mysite/base.html' %}
+{% load future %}
+     {% block content %}
+
+<html lang="en">
+<head>
+
+<!-- Latest compiled and minified JavaScript -->
+
+{% load staticfiles%}
+    <!--    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/calendar.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/popstyle.css' %}">
+  <!--<link rel="stylesheet" href="{% static 'css/reset.css' %}">-->
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <script type="text/javascript" src="{% static 'js/jquery.js' %}" ></script>
+  <script type="text/javascript" src="{% static 'js/pop.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+ 	<script type="text/javascript" src="{% static 'js/calendar.js' %}" ></script>
+ 	
+  <script type="text/javascript" src="{% static 'js/jquery.imagesloaded.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.wookmark.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+  
+
+
+
+</head>
+
+<body>
+	<script type="text/javascript" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <div >	
+  	<div class="container" id="background">
+  		<div id="calendar"></div>
+  	</div>
+  </div>
+  <div class="container" id="showimg">
+    <div id="main">
+      <ul id="tiles">
+        <!-- These are our grid blocks -->
+
+        
+      </ul>
+
+    </div>
+
+    <div class="bubbleInfo dd scrollup" id="event">
+
+      <a class="trigger evebutton" ><span class="glyphicon glyphicon-glass" ></span>查看活動</a>
+      
+      <table id="dpop" class="popup">
+        <tr>
+          <td id="topleft" class="corner"></td>
+          <td class="top"></td>
+
+          <td id="topright" class="corner"></td>
+        </tr>
+
+        <tr>
+          <td class="left"></td>
+          <td><table class="popup-contents" id="eventtable">
+            <thead><tr>
+              <td colspan="3"><a data-toggle="modal" data-target="#addevent"><span class="glyphicon glyphicon-plus"></span>新增活動</a></td>
+            </tr></thead>
+          </table>
+          <td class="right"></td>    
+        </tr>
+
+        <tr>
+          <td class="corner" id="bottomleft"></td>
+          <td class="bottom"></td>
+          <td id="bottomright" class="corner"></td>
+        </tr>
+      </table>
+  </div>
+  <div>
+    <a id="additem" class="scrollup dd" data-toggle="modal" data-target="#addimg"><span class="glyphicon glyphicon-plus-sign"></span>新增習俗</a>
+   </div>
+   <div id="backbutton" >
+     <div id="showimg"><a id="back" href="#background" class="scrollup">
+      <span class="glyphicon glyphicon-hand-up"></span>回到月曆</a></div> 
+    </div>
+
+
+  </div>
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <img src="{% static 'img/baby.jpg' %}" width="200" height="283">
+          <a class="btn btn-primary btn-lg" href="https://www.facebook.com/sharer/sharer.php?u=http://utcs.csie.org/~u10016011/SNA/photowall/baby.jpg" >Share on Facebook</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="modal fade" id="addimg" tabindex="-1" role="dialog" aria-labelledby="Modalimg" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="Modalimg">新增習俗</h4>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+   <div class="modal fade" id="addevent" tabindex="-1" role="dialog" aria-labelledby="Modalevent" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="Modalevent">新增活動</h4>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+           	
+           	
+       
+        
+ 
+
+{% endblock %}         
+
+  
+ 
+    </body>
+</html>
+
+

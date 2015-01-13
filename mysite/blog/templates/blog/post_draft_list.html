@@ -1,0 +1,21 @@
+{% extends 'mysite/base.html' %}
+{% load future %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <small class="date">created: {{ post.created_date|date:'d-m-Y' }}</small>
+            <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.festival_name }}</a></h1>
+            <p>關於節慶的小故事</p>
+            <p>{{ post.festival_story }}</p>
+            <p>這個節慶在什麼時間</p>
+            <p>{{ post.set_date }}</p>
+            <p>這個習俗的步驟</p>
+            <p>{{ post.step }}</p>
+            <p>這個習俗的小撇步</p>
+            <p>{{ post.tip }}</p>
+            <p>這個習俗需要什麼工具</p>
+            <p>{{ post.material }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

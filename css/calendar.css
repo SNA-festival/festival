@@ -1,0 +1,101 @@
+body{
+    background-color: #F0F0F0;
+    
+    font-family: arial,tahoma,sans-serif;
+}
+
+#calendar{
+    height: auto;
+    width: 80%;
+    padding: 18px 18px 18px 18px;
+    margin: 0px auto 0px auto;
+    background-color: #fff;
+    position: relative;
+    display: none;
+    border-radius: 20px;
+    box-shadow: #ddd 5px 5px;
+    border: 1px solid #bbb;
+    
+}
+
+.months{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+#month{
+    width: 100%;
+}
+
+#currentMonth{
+    font-size: 2em;
+    text-align: center;
+    padding: 0px 50px 0 50px;
+    margin: 0px;
+    cursor: default;
+}
+
+#prevMonth{
+    font-size: .9em;
+    cursor: pointer;
+    
+}
+
+#nextMonth{
+    font-size: .9em;
+    cursor: pointer;
+}
+
+#header div{
+
+    display: inline-block;
+}
+#today{
+
+}
+.dayName p{
+    margin: 2px;
+    width: 120px;
+    font-size: .9em;
+    font-weight: bold;
+    padding: 1px;
+    text-align: center;
+}
+
+.dayBox {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #ccc;
+    float: left;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: #ddd 2px 2px;
+    
+
+}
+#day12{
+    background-color: #eee;    
+}
+.empty {
+
+    width: 120px;
+    height: 120px;
+    border: 1px solid #eee;
+    float: left;
+    margin: 2px;
+    background-color: #eee;
+    border-radius: 4px;
+
+}
+
+.date {
+    padding: 5px;
+    font-size: .9em;
+}
+
+.clear{
+    clear: both;
+}

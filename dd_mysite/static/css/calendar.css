@@ -1,0 +1,108 @@
+body{
+    font-family: arial,tahoma,sans-serif;
+}
+#background{
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    display: none;
+}
+#calendar{
+    height: auto;
+    width: 80%;
+    padding: auto;
+    margin: auto;
+    background-image:url("../img/boarder2.png");
+    position: relative;
+    display: none;
+    background-size: cover;
+}
+
+.months{
+    width: 100%;
+    text-align: center;
+    padding-top: 60px;
+    margin: 0;
+    font-weight:800;
+}
+
+#month{
+    margin-left:100px;
+}
+
+#currentMonth{
+    font-size: 2em;
+    text-align: center;
+    padding: 0px 50px 0 50px;
+    margin: 0px;
+    cursor: default;
+}
+
+#prevMonth{
+    font-size: .9em;
+    cursor: pointer;
+    
+}
+
+#nextMonth{
+    font-size: .9em;
+    cursor: pointer;
+}
+
+#header div{
+    text-align: center;
+    font-weight:300;
+    display: inline-block;
+}
+#week{
+    margin-left:100px;
+}
+
+.dayName p{
+    margin: 2px;
+    width: 120px;
+    font-size: .9em;
+    font-weight: bold;
+    padding: auto;
+    text-align: center;
+}
+
+.dayBox {
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: rgba(80%,80%,80%,0.7) 2px 2px;
+    background: rgba(100%,100%,100%,0.8);
+}
+
+.empty {
+
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: 2px;
+    background: rgba(80%,80%,80%,0.7);
+    border-radius: 4px;
+
+}
+.nullBox{
+    width: 120px;
+    height: 120px;
+    float: left;
+    margin: 2px;
+    background: rgba(100%,100%,100%,0);
+    border-radius: 4px;
+}
+
+.date {
+    padding: 5px;
+    font-size: .9em;
+}
+
+.clear{
+    clear: both;
+}
