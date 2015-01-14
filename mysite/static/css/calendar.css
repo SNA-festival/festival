@@ -1,6 +1,6 @@
 body{
     font-family: arial,tahoma,sans-serif;
-    margin-top:60px;
+    margin-top:30px;
     background-color:#75B9BE;
 }
 #background{
@@ -11,9 +11,7 @@ body{
 #calendar{
     height: auto;
     width: 80%;
-    padding: auto;
-    
-    margin: auto;
+    margin-left:10%;
     background-image:url("../img/calendar.png");
     position: relative;
     display: none;
@@ -30,7 +28,7 @@ body{
 }
 
 #month{
-    margin-left:100px;
+    margin-left:10%;
     
 }
 
@@ -61,7 +59,7 @@ body{
     display: inline-block;
 }
 #week{
-    margin-left:100px;
+    margin-left:10%;
     font-weight:800;
     font-size: 1.3em;
     color:#31345E;
@@ -83,6 +81,9 @@ body{
     margin: 2px;
     cursor: pointer;
     border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#CECECE;
     box-shadow: rgba(80%,80%,80%,0.7) 2px 2px;
     background: rgba(100%,100%,100%,0.8);
 }
@@ -107,13 +108,27 @@ body{
 }
 
 .date {
-    padding: 5px;
+    padding: 10px;
     font-size: .9em;
+    font-weight:500;
+    
 }
 
 .clear{
     clear: both;
 }
-li.photo{
-    padding:300px;
+.namebg{
+    font-size: 1em;
+    padding-left:10px;
+    padding-top:3px;
+    padding-right:3px;
+    padding-bottom:3px;
+    width:80%;
+    background-color:#F7EF99;
+    color:#111;
+    box-shadow: rgba(80%,80%,80%,0.7) 2px 2px;
+}
+.itemname{
+    padding-bottom:5px;
+    direction:rtl; 
 }

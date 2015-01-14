@@ -4,11 +4,15 @@ from django.shortcuts import render_to_response
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
+from django.contrib import auth
+# from django.core.content_processors import csrf
+
 
 from .models import Document
 from .forms import DocumentForm
 from .models import Post
 from .forms import PostForm
+
 
     
 def post_list(request):
@@ -120,6 +124,14 @@ def Home(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     
     if request.method == "POST":
+        
+        Loginform = PostForm(request.POST)
+        if Loginform.is_valid():
+            # login = Loginform.save(commit=False)
+            # login.save()
+            
+            return HttpResponseRedirect("ok!")   
+        
         #save button
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -128,8 +140,8 @@ def Home(request):
             post.save()
             newdoc = Document(docfile = request.FILES['docfile'])
             newdoc.save()
-            print "mish"
-            return HttpResponseRedirect(reverse(post_detail, kwargs={'pk': post.pk}))
+            return HttpResponseRedirect(".")   
+            #return HttpResponseRedirect(reverse(post_detail, kwargs={'pk': post.pk}))
         
         #upload button    
         formUpload = DocumentForm(request.POST, request.FILES)
@@ -148,11 +160,24 @@ def Home(request):
     #documents = Document.objects.all()
     #documents = Document.objects.order_by('documents/%Y/%m/%d').first()
     #documents = Document.objects.latest('pub_date')
-    documents = Document.objects.order_by('id').reverse()[:1]
+    #documents = Document.objects.order_by('id').reverse()[:1]
     
+    # c={}
+    # c.update(csrf(request))
+    # username = request.POST.get('username','')
+    # password = request.POST.get('password','')
+    # user = auth.authenticate(usrername=username, password=password)
+    
+    # if user is not None:
+    #     auth.login(request, user)
+    #     return render_to_response('login.html',c)
+        
+    # else:
+    #     return HttpResponseRedirect('/accounts/invalid')
+ 
  
     return render_to_response(
     'blog/HomePage.html',
-    {'documents': documents, 'formUpload': formUpload, 'posts': posts, 'form': form},
+    {'formUpload': formUpload, 'posts': posts, 'form': form},
     context_instance=RequestContext(request)
     )

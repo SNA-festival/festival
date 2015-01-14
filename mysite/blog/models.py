@@ -3,6 +3,15 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.forms import ModelForm, Textarea
 
+class LoginM(models.Model):
+    
+    #author = models.ForeignKey(User)
+    author =  models.CharField(max_length=10)
+    password =  models.CharField(max_length=10)
+        #self.save()
+
+    def __unicode__(self):
+        return self.author
 
 
 # Create your models here.
@@ -16,12 +25,12 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
     
     # title = models.CharField(max_length=1000, default=None, blank=True, null=True)
-    festival_story = models.TextField(default=None, blank=True, null=True)
+    festival_story = models.TextField(default=None)
     # step = models.TextField(default=None, blank=True, null=True)
     # tip = models.TextField(default=None, blank=True, null=True)
     # material = models.TextField(default=None, blank=True, null=True)
     
-    docfile = models.FileField(upload_to='documents/%Y/%m/%d', default=None, blank=True, null=True)
+    docfile = models.FileField(upload_to='documents/%Y/%m/%d', default=None)
     # = models.TextField(default=None, blank=True, null=True)
 
       

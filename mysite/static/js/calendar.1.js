@@ -138,7 +138,7 @@ function showevent(){
     var whatdday=[];
     var whatmon=[];
     var printthis=[];
-    var elem=[];
+    var newelem=[];
     for(var i=0;i<$('.post').length;i++){
         
         mon[i]= $('.date')[i].innerHTML.substring(0, 3);
@@ -158,16 +158,31 @@ function showevent(){
         }
         printthis[i]="day"+whatdday[i];
         
-        elem[i]=document.createElement("a");
-        elem[i].setAttribute("href","#showimg");
-        elem[i].setAttribute("id",$('.post')[i].innerHTML);
-        elem[i].setAttribute("class","dt");
-        elem[i].setAttribute("onClick","photowall(this.id)");
-        
+       
+        newelem[i]=document.createElement("div");
+        newelem[i].setAttribute("id","newelem"+i);
+        newelem[i].setAttribute("class","itemname");
+  
         if(whatmon[i]==currentMonth){
-            elem[i].appendChild(document.createTextNode($('.post')[i].innerHTML));
-            document.getElementById(printthis[i]).appendChild(elem[i]);
-            $('#wtffffff').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.file')[i].innerHTML+'</p>');
+
+            for(var j=0;j<i;j++){
+                if(whatdday[i]!=whatdday[j]){
+                    
+                    document.getElementById(printthis[i]).appendChild(newelem[i]);
+                    $('#newelem'+i).append('<div class="namebg"><a id="'+$('.post')[i].innerHTML+'" href="#showimg" class="dt" onClick="photowall(this.id)">'+$('.post')[i].innerHTML+'</a></div>');
+                    break;
+                }else {
+                    
+                    if($('.post')[i].innerHTML!=$('.post')[j].innerHTML){
+                        document.getElementById(printthis[i]).appendChild(newelem[i]);
+                        $('#newelem'+i).append('<div class="namebg"><a id="'+$('.post')[i].innerHTML+'" href="#showimg" class="dt" onClick="photowall(this.id)">'+$('.post')[i].innerHTML+'</a></div>');
+                        break;
+                    }
+                }
+            }
+            
+            
+            $('#thisimg').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.file')[i].innerHTML+'</p>');
         }
     }
     
@@ -312,7 +327,7 @@ function photowall(dayname){
         li[i].setAttribute("id", "element"+i);
         li[i].setAttribute("class", "photo");
         ul.appendChild(li[i]);
-        $('#element'+i).append('<img data-toggle="modal" data-target="#myModal" src="'+imgsrc[i]+'" width="290px" height="autoResize">');
+        $('#element'+i).append('<img src="'+imgsrc[i]+'" width="190px" height="autoResize">');
     }
     showphoto();
 

@@ -7,7 +7,7 @@
       <!--<link rel="stylesheet" href="{% static 'css/page.css' %}" media="screen" />-->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    
+    <script type="text/javascript" src="{% static 'js/fblogin.js' %}"></script>
     <!--<link rel="stylesheet" href="{% static 'css/blog.css' %}"> -->
 	<title>{% block title %}FACESTIVAL{% endblock %}</title>
     
@@ -42,8 +42,11 @@
 					<a href="" data-toggle="modal" data-target="#addimg">新增習俗</a>
 				</li>
 				<li>
-					<a href="http://umkkaea539e4.mish.koding.io/fblogin-basic-master/fblogin-basic-master/index.php">Login</a>
-					
+					<!--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="true" data-auto-logout-link="true">login</div>-->
+					<div id="login_b">
+					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true" data-show-faces="true">
+					</fb:login-button>
+					</div>
 				</li>
 
 			</ul>
@@ -61,6 +64,6 @@
                 {% block content %}
                 {% endblock %}
  
-        
+        <!---->
     </body>
 </html>
