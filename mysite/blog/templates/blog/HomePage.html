@@ -51,6 +51,7 @@
     <p class="date">{{ post.set_date }}</p>
     <p class="file">http://festival-rdia0117-2.c9.io/media/{{ post.docfile }}</p>
     <p class="articleURL">http://festival-rdia0117-2.c9.io/post/{{ post.pk }}</p>
+    <p class="story">{{ post.festival_story }}</p>
     
     {% endfor %}  
     
@@ -75,7 +76,8 @@
     </div>
     <div id="thisimg"></div>
     <div id="thisurl"></div>
-
+<div id="thisdate"></div>
+<div id="thisstory"></div>
   <div>
   
    </div>
@@ -86,7 +88,28 @@
 
 
   </div>
- 
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <div id="con"><img id="eventimg" src="" width="420px" height="320px"></div>
+        <div><p>關於節慶的小故事</p></div>
+        <div ><p id="eventstory"></p></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ><a id="modalshare">Share</a></button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container">
   <div class="modal fade" id="addimg" tabindex="-1" role="dialog" aria-labelledby="Modalimg" aria-hidden="true">

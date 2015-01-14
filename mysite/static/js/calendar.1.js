@@ -210,6 +210,8 @@ function showevent(){
             $('#thisimg').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.file')[i].innerHTML+'</p>');
         
             $('#thisurl').append('<p class="'+$('.post')[i].innerHTML+'url">'+$('.articleURL')[i].innerHTML+'</p>');
+            $('#thisdate').append('<p class="'+$('.post')[i].innerHTML+'date">'+$('.date')[i].innerHTML+'</p>');
+            $('#thisstory').append('<p class="'+$('.post')[i].innerHTML+'story">'+$('.story')[i].innerHTML+'</p>');
         }
     }
     
@@ -344,6 +346,8 @@ function photowall(dayname){
     var li =[];
     var imgsrc=[];
     var acturl=[];
+    var evedate=[];
+    var evesty=[];
     $('.photo').remove();
     // var whatday=$('.'+dayname)[0].innerHTML;
 
@@ -355,8 +359,10 @@ function photowall(dayname){
         li[i].setAttribute("id", "element"+i);
         li[i].setAttribute("class", "photo");
         ul.appendChild(li[i]);
-        $('#element'+i).append('<div><img id="pin" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/256x256/DrawingPin1_Blue.png"></div><a href="'+acturl[i]+'"><div class="portfolio-item"><img src="'+imgsrc[i]+'" width="300px" height="autoResize"></div></div></a>');
+        $('#element'+i).append('<div><img id="pin" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/256x256/DrawingPin1_Blue.png"></div><a data-toggle="modal" data-target="#myModal" onClick="uploadmodal(\'' + dayname + '\',\'' + i + '\')"><img src="'+imgsrc[i]+'" width="300px" height="autoResize"></div></a>');
     }
+
+    
     showphoto();
 
 }
@@ -389,4 +395,34 @@ function uploadimg(){
 
 function clearimg(){
     document.getElementById('imgUpload').setAttribute("src","http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png");
+}
+function uploadmodal(dayname,num){
+    var imgsrc=[];
+    var acturl=[];
+    var evedate=[];
+    var evesty=[];
+    
+    for(var i=0;i<$('.'+dayname).length;i++){
+        imgsrc[i]=$('.'+dayname)[i].innerHTML;
+        acturl[i]=$('.'+dayname+'url')[i].innerHTML;
+        evedate[i]=$('.'+dayname+'date')[i].innerHTML;
+        evesty[i]=$('.'+dayname+'story')[i].innerHTML;
+    }
+
+    document.getElementById("myModalLabel").innerHTML= dayname+"   "+evedate[num];
+    document.getElementById("eventimg").setAttribute("src",imgsrc[num]);
+    document.getElementById("eventstory").innerHTML= evesty[num];
+    // document.getElementById("modalshare").setAttribute("href","https://www.facebook.com/sharer/sharer.php?u="+acturl[num]);
+    // document.getElementById("modalshare").addEventListener("click", function() {
+    //     qq(acturl[num]);
+    // }, true);
+    document.getElementById("modalshare").onclick = function() { 
+            yeah("https://www.facebook.com/sharer/sharer.php?u="+acturl[num]); 
+        };
+
+    
+}
+function yeah(yaya){
+  
+    {window.open(""+yaya+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false; }
 }

@@ -26,10 +26,19 @@ p.file{
 p.articleURL{
 	display:none;
 }
+p.story{
+	display:none;
+}
 #thisimg{
 	display:none;
 }
 #thisurl{
+	display:none;
+}
+#thisdate{
+	display:none;
+}
+#thisstory{
 	display:none;
 }
 h1{

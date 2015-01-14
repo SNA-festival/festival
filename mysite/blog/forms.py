@@ -29,7 +29,7 @@ class PostForm(forms.ModelForm):
     #set_date.setdefault('input_formats', ("%d.%m.%Y",))
     # title = forms.CharField(label='標題')
     festival_name = forms.CharField(label='節慶名稱')
-    festival_story= forms.CharField(label='節慶故事')
+    festival_story= forms.CharField(label='節慶故事',widget=forms.Textarea)
     class Meta:
         model = Post
         fields = ('docfile','festival_name','set_date','festival_story')
