@@ -1,13 +1,19 @@
 body{
     text-align:center;
+    padding-left: 25%; 
+    padding-top:1%;
+    background-color:"#75B9BE";
 } 
 
 .panel{
     width: 50%;
     height: 50%;
-    border: 1px solid #c3c3c3;
-    text-align:center;
-    padding: 100px 
+    border: 2px solid #c3c3c3;
+    text-align:left;
+    padding-left: 5%;
+    padding-top:5%;
+    background-color:"#E2F89C";
+ 
 }
 
 /*.scroll_b {*/
@@ -20,4 +26,12 @@ body{
 /*    text-align:center;*/
 /*}*/
 
+#fcs_div_54b51fe417d62{
+    width: 50%;
+    height: 50%;
+    text-align:center;
+    padding-bottom: 1%; 
+    background-color:"#D5E1A3"; 
+    
+}
 

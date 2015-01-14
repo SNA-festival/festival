@@ -134,8 +134,8 @@ def Home(request):
         #upload button    
         formUpload = DocumentForm(request.POST, request.FILES)
         if formUpload.is_valid():
-            newdoc = Document(docfile = request.FILES['docfile'])
-            newdoc.save()
+            newdoc2 = Document(docfile = request.FILES['docfile'])
+            newdoc2.save()
             print "mish22"
             # Redirect to the document list after POST
             return HttpResponseRedirect(".")    

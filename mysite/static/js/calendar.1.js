@@ -1,4 +1,4 @@
-var dayList = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var dayList = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 var monthList = [ "　一月", "　二月", "　三月", "　四月", "　五月", "　六月",
   "　七月", "　八月", "　九月", "　十月", "十一月", "十二月" ];    
 
@@ -24,10 +24,8 @@ var date = currentMonth;//.slice(1,2);
 $(document).ready(function(){
 
     $('#background').fadeIn(1000);
-
     createCalendar();
     inithide();
-    eventbutton();
 
 });
 
@@ -86,17 +84,9 @@ function createCalendar(){
             $('#month').append('<div class="empty"></div>');
         }
         else{
-            if(counter==1){
-                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg" id="thank" onClick="photowall(this.id);"><dt>感恩節</dt></a></div>');        
-                 $('.dayBox').css({backgroundColor : '#FFA488'});
-            }else if(counter==25){
-                $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span><a href="#showimg" id="xmas" onClick="photowall(this.id);"><dt>聖誕節</dt></a></div>');        
-                
-            }
-            else{
+            
                  $('#month').append('<div id="day'+counter+'"class="dayBox main"><span class="date">'+counter+'</span></div>');
-
-            }
+           
             counter++;
         }
         if(i==blocks-1){
@@ -177,7 +167,7 @@ function showevent(){
         if(whatmon[i]==currentMonth){
             elem[i].appendChild(document.createTextNode($('.post')[i].innerHTML));
             document.getElementById(printthis[i]).appendChild(elem[i]);
-            $('#wtffffff').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.title')[i].innerHTML+'</p>');
+            $('#wtffffff').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.file')[i].innerHTML+'</p>');
         }
     }
     
@@ -255,11 +245,7 @@ function changenextMonth(){
         inithide();
 }
 
-function eventbutton(){
-    //翔翔 這裡是抓出活動
-    $('#eventtable').append('<tr><td rowspan="2" width="30%" class="eventimg">img1</td><th width="45%" height="20%" class="eventtitle">title1</th><td width="15%" height="20%" class="eventlocation">location1</td><td width="10%" height="20%" class="eventjoin">join</td></tr><tr><td colspan="3" height="60%" class="eventpeople">5</td></tr>');
 
-}
 function inithide(){
     $('.dd').hide();
     $('#back').hide();
@@ -314,17 +300,19 @@ function photowall(dayname){
     $("#main").css("display","block");
     var ul = document.getElementById("tiles");
     var li =[];
-    var imgsrc="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg"
+    var imgsrc=[];
     $('.photo').remove();
-    var whatday=$('.'+dayname)[0].innerHTML;
-    alert(dayname);
+    // var whatday=$('.'+dayname)[0].innerHTML;
 
-    for(var k=0;k<10;k++){
-        li[k] = document.createElement("li");
-        li[k].setAttribute("id", "element"+k);
-        li[k].setAttribute("class", "photo");
-        ul.appendChild(li[k]);
-        $('#element'+k).append('<img  onClick="chmodal(this.id); data-toggle="modal" data-target="#myModal" src="'+imgsrc+'" width="190px" height="autoResize"><p>'+whatday+'</p>');
+    alert($('.'+dayname)[0].innerHTML);
+    // imgsrc[0]=$('.'+dayname)[0].innerHTML;
+    for(var i=0;i<$('.'+dayname).length;i++){
+        imgsrc[i]=$('.'+dayname)[i].innerHTML;
+        li[i] = document.createElement("li");
+        li[i].setAttribute("id", "element"+i);
+        li[i].setAttribute("class", "photo");
+        ul.appendChild(li[i]);
+        $('#element'+i).append('<img data-toggle="modal" data-target="#myModal" src="'+imgsrc[i]+'" width="290px" height="autoResize">');
     }
     showphoto();
 

@@ -3,30 +3,40 @@
 {% block content %}
 {% load staticfiles%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/post_detail_.css' %}">
+<script type="text/javascript" src="{% static 'js/post_detail_.js' %}" ></script>
 <body>
     <div class="scroll_b">
         <div class="panel">
             <div class="date">
-            {% if post.published_date %}
-                {{ post.published_date }}
-            {% else %}
-                <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
-            {% endif %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+                {% if post.published_date %}
+                    {{ post.published_date }}
+                {% else %}
+                    <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
+                {% endif %}
+                <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
             </div>
-            <h1>{{ post.festival_name }}</h1>
-            <p>關於節慶的小故事</p>
-            <p>{{ post.festival_story }}</p>
-            <p>這個節慶在什麼時間</p>
-            <p>{{ post.set_date }}</p>
-            <p>這個習俗的步驟</p>
-            <p>{{ post.step }}</p>
-            <p>這個習俗的小撇步</p>
-            <p>{{ post.tip }}</p>
-            <p>這個習俗需要什麼工具</p>
-            <p>{{ post.material }}</p>
+                <h1>{{ post.festival_name }}</h1>
+                <p>關於節慶的小故事</p>
+                <p>{{ post.festival_story }}</p>
+                <p>這個節慶在什麼時間</p>
+                <p>{{ post.set_date }}</p>
+                <p>這個習俗的步驟</p>
+                <p>{{ post.step }}</p>
+                <p>這個習俗的小撇步</p>
+                <p>{{ post.tip }}</p>
+                <p>這個習俗需要什麼工具</p>
+                <p>{{ post.material }}</p>
+                <p>這個習俗需要什麼工具</p>
+            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+            </div>
+            <!--<div class="fb-comments"  data-numposts="5" data-colorscheme="light">-->
+            <div id="fcs_div_54b51fe417d62" title="free comment script">123123
+            </div>
+            <div id="fcs_div_54b51fe417d62"><a title="free comment script" href="http://www.freecommentscript.com">&nbsp;&nbsp;</a></div>
         </div>
-  </div>
+    </div>
+
+
 </body>
 {% endblock %}

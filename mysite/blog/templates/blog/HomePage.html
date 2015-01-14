@@ -27,13 +27,7 @@
   <script type="text/javascript" src="{% static 'js/jquery.wookmark.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
   
- <script type="text/javascript" src="{% static 'js/mootools-1.2.4-core.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/mootools-1.2.4.4-more.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/calendar-eightysix-v1.2.js' %}"></script>
-
-    <link rel="stylesheet" type="text/css" href="{% static 'css/calendar-eightysix-v1.1-default.css' %}" media="screen" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/calendar-eightysix-v1.1-vista.css' %}" media="screen" />
-	<link rel="stylesheet" type="text/css" href="{% static 'css/calendar-eightysix-v1.1-osx-dashboard.css' %}" media="screen" />
+ 
 
 
 </head>
@@ -58,8 +52,7 @@
   	
     <p class="post">{{ post.festival_name }}</p>
     <p class="date">{{ post.set_date }}</p>
-    <p class="title">title~~{{ post.title }}</p>
-    <p class="file">http://mish-1-5-mishchen.c9.io/media/{{ post.docfile }}</p>
+    <p class="file">http://festival-rdia0117-2.c9.io/media/{{ post.docfile }}</p>
     
     
     {% endfor %}  
@@ -84,37 +77,7 @@
 
     </div>
     <div id="wtffffff"></div>
- 
 
-  <!--  <div class="bubbleInfo dd scrollup" id="event">-->
-
-  <!--    <a class="trigger evebutton" ><span class="glyphicon glyphicon-glass" ></span>查看活動</a>-->
-      
-  <!--    <table id="dpop" class="popup">-->
-  <!--      <tr>-->
-  <!--        <td id="topleft" class="corner"></td>-->
-  <!--        <td class="top"></td>-->
-
-  <!--        <td id="topright" class="corner"></td>-->
-  <!--      </tr>-->
-
-  <!--      <tr>-->
-  <!--        <td class="left"></td>-->
-  <!--        <td><table class="popup-contents" id="eventtable">-->
-  <!--          <thead><tr>-->
-  <!--            <td colspan="3"><a data-toggle="modal" data-target="#addevent"><span class="glyphicon glyphicon-plus"></span>新增活動</a></td>-->
-  <!--          </tr></thead>-->
-  <!--        </table>-->
-  <!--        <td class="right"></td>    -->
-  <!--      </tr>-->
-
-  <!--      <tr>-->
-  <!--        <td class="corner" id="bottomleft"></td>-->
-  <!--        <td class="bottom"></td>-->
-  <!--        <td id="bottomright" class="corner"></td>-->
-  <!--      </tr>-->
-  <!--    </table>-->
-  <!--</div>-->
   <div>
   
    </div>
@@ -189,9 +152,8 @@
             {{ form.as_p }}
     		<div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         
-            <button type="submit" name="save" class="save btn btn-default">Save</button>
+            <button type="submit" name="save" class="save btn btn-primary">Save</button>
           </div>  
             
         </form>

@@ -38,7 +38,7 @@ header p {
  * Grid items
  */
 #tiles li {
-  width: 200px;
+  width: 300px;
   background-color: #ffffff;
   border: 1px solid #dedede;
           border-radius: 2px;
@@ -46,7 +46,7 @@ header p {
   -webkit-border-radius: 2px;
   display: none; /** Hide items initially to avoid a flicker effect **/
   cursor: pointer;
-  padding: 4px;
+  padding: 2px;
 }
 
 #tiles li.inactive {
@@ -135,8 +135,8 @@ footer a {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   font-size: 2em;
   font-weight: bold;
   text-decoration: none;
@@ -148,4 +148,7 @@ footer a {
 
 .example-tiles a:hover {
   background-color: #ddd;
+}
+.test{
+  padding:100px;
 }
