@@ -7,6 +7,7 @@
 <body>
     <div class="scroll_b">
         <div class="panel">
+            <div class="panel_b">
             <div class="date" id="post_conent">
                 {% if post.published_date %}
                     {{ post.published_date }}
@@ -21,12 +22,14 @@
                 <p>{{ post.festival_story }}</p>
                 <p>這個節慶在什麼時間</p>
                 <p>{{ post.set_date }}</p>
-            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+            
+            <div class="fb-like" data-share="true" data-width="450">
+            </div>
             </div>
             <!--<div class="fb-comments"  data-numposts="5" data-colorscheme="light">-->
             
             <div id="fcs_div_54b652c121845"><a title="free comment script" href="http://www.freecommentscript.com"></a></div>
-        
+            
         </div>
     </div>
 

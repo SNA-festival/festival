@@ -28,7 +28,7 @@
   <script type="text/javascript" src="{% static 'js/jquery.imagesloaded.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.wookmark.js' %}"></script>
-  <script type="text/javascript" src="{% static 'css/modal.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
 
 </head>
  
@@ -75,10 +75,7 @@
     </div>
     <div id="thisimg"></div>
     <div id="thisurl"></div>
-<p>
-					<input class="inputDate" id="inputDate" value="06/14/2008" />
-					<label id="closeOnSelect"><input type="checkbox" /> Close on selection</label>
-				</p>
+
   <div>
   
    </div>
@@ -101,19 +98,18 @@
         </div>
         <div class="modal-body">
           
-           
+           <img id="imgUpload" src="http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png" width="420" height="320">
            {% if documents %}
     			<ul>
     			{% for document in documents %}
     			
     				<!--<li><a href="{{ document.docfile.url }}">{{ document.docfile.name }}</a></li>-->
     				<!--<li><img src="{{ document.docfile.url }}" width="42" height="42"></li>-->
-    				<img src="{{ document.docfile.url }}" width="420" height="320">
+    				
     				
     			{% endfor %}
     			</ul>
     		{% else %}
-    			<p>No documents.Mish</p>
     		{% endif %}  
     		
     	     <form  method="post" enctype="multipart/form-data">
@@ -132,10 +128,9 @@
     
         
         <form method="POST" class="post-form"  enctype="multipart/form-data">{% csrf_token %}
-            <input type="submit" value="Upload" name="upload" />
             {{ form.as_p }}
     		<div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="clearimg()">Close</button>
         
             <button type="submit" name="save" class="save btn btn-primary">Save</button>
           </div>  
@@ -151,30 +146,7 @@
 
        <input type="hidden" id="myVar" name="variable" value="{{ variable }}">    	
       
-	<script language="javascript" type="text/javascript">
-  	var div1 = document.getElementById("div1");
-  
-  	var div2 = document.getElementById("div2");
-  
-  	var month = document.getElementById("month");
-  	
-  	var myVar = document.getElementById("myVar").value;
-  
-  	
-  
-  
-  	document.getElementById(div2).append(myVar);
-  	
-  
-  	document.getElementById(div1).innerHTML = "fuck you";window.alert("ddw");
-  	
-	
-  </script>
 
-
-
-
- 
 
 {% endblock %}         
 

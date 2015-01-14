@@ -26,6 +26,7 @@ $(document).ready(function(){
     $('#background').fadeIn(1000);
     createCalendar();
     inithide();
+    uploadimg();
 
 });
 
@@ -183,6 +184,8 @@ function showevent(){
             
             
             $('#thisimg').append('<p class="'+$('.post')[i].innerHTML+'">'+$('.file')[i].innerHTML+'</p>');
+        
+            $('#thisurl').append('<p class="'+$('.post')[i].innerHTML+'url">'+$('.articleURL')[i].innerHTML+'</p>');
         }
     }
     
@@ -316,20 +319,50 @@ function photowall(dayname){
     var ul = document.getElementById("tiles");
     var li =[];
     var imgsrc=[];
+    var acturl=[];
     $('.photo').remove();
     // var whatday=$('.'+dayname)[0].innerHTML;
 
-    alert($('.'+dayname)[0].innerHTML);
     // imgsrc[0]=$('.'+dayname)[0].innerHTML;
     for(var i=0;i<$('.'+dayname).length;i++){
         imgsrc[i]=$('.'+dayname)[i].innerHTML;
+        acturl[i]=$('.'+dayname+'url')[i].innerHTML;
         li[i] = document.createElement("li");
         li[i].setAttribute("id", "element"+i);
         li[i].setAttribute("class", "photo");
         ul.appendChild(li[i]);
-        $('#element'+i).append('<img src="'+imgsrc[i]+'" width="190px" height="autoResize">');
+        $('#element'+i).append('<a href="'+acturl[i]+'"><img src="'+imgsrc[i]+'" width="190px" height="autoResize"></a>');
     }
     showphoto();
 
 }
+function uploadimg(){
+    document.getElementById("id_docfile").addEventListener("change", handleFiles , false);
+  
+    function handleFiles() {
+        console.log("wertyui");
+        var files = document.getElementById("id_docfile").files;
+        for (var i = 0; i < files.length; i++) {
+        var file = files[i];
+        var imageType = /image.*/;
+        
+        if (!file.type.match(imageType)) {
+          continue;
+        }
+        
+        var img = document.getElementById("imgUpload");
+        img.classList.add("obj");
+        img.file = file;
+        
+        var reader = new FileReader();
+        reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+        reader.readAsDataURL(file);
+         
+      }
+    }  
+    
+}
 
+function clearimg(){
+    document.getElementById('imgUpload').setAttribute("src","http://en.immostreet.com/Content/img/icon/icon_missing_photo_detail.png");
+}
