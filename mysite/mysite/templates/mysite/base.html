@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="{% static 'js/fblogin.js' %}"></script>
     <!--<link rel="stylesheet" href="{% static 'css/blog.css' %}"> -->
-	<title>{% block title %}FACESTIVAL{% endblock %}</title>
+	<title>{% block title %}FACETIVAL{% endblock %}</title>
     
 
     
@@ -20,7 +20,15 @@
         
     
     <body>
-    
+    <style type="text/css">
+      .navbar-default {
+  
+        background-image: none;
+        border-color: #111;
+        background-color:#111;
+        /*border-color: $bgHighlight;*/
+      }
+    </style>
 
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="navbar-header">
@@ -43,8 +51,8 @@
 				</li>
 				<li>
 					<!--<div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="true" data-auto-logout-link="true">login</div>-->
-					<div id="login_b">
-					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true" data-show-faces="true">
+					<div class="login_b" >
+					<fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true" >
 					</fb:login-button>
 					</div>
 				</li>

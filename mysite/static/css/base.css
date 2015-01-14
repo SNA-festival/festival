@@ -1,7 +1,8 @@
-#login_b{
+.login_b{
     padding-left:10%;
+    padding-top:10%;
+    overflow: hidden;
 }
 .data-auto-logout-link{
     padding-left:10%;
 }
-="true" data-show-faces="true"

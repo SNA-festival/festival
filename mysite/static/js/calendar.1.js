@@ -23,7 +23,7 @@ var date = currentMonth;//.slice(1,2);
 
 $(document).ready(function(){
 
-    $('#background').fadeIn(1000);
+    $("#background").fadeIn(1000);
     createCalendar();
     inithide();
     uploadimg();
@@ -147,6 +147,30 @@ function showevent(){
         
         if(mon[i]=="Jan"){
             whatmon[i]=0;
+        }else if(mon[i]=="Feb"){
+             whatmon[i]=1;
+        }else if(mon[i]=="Mar"){
+             whatmon[i]=2;
+        }else if(mon[i]=="Apr"){
+             whatmon[i]=3;
+        }else if(mon[i]=="May"){
+             whatmon[i]=4;
+        }else if(mon[i]=="Jun"){
+             whatmon[i]=5;
+        }else if(mon[i]=="Jul"){
+             whatmon[i]=6;
+        }else if(mon[i]=="Aug"){
+             whatmon[i]=7;
+        }else if(mon[i]=="Sep"){
+             whatmon[i]=8;
+        }else if(mon[i]=="Oct"){
+             whatmon[i]=9;
+        }else if(mon[i]=="Nov"){
+             whatmon[i]=10;
+        }else if(mon[i]=="Dec"){
+             whatmon[i]=11;
+        }else {
+             whatmon[i]=12;
         }
         
         if ($('.date')[i].innerHTML.charAt(6)==","){
@@ -303,7 +327,7 @@ function showphoto(){
         autoResize: true, // This will auto-update the layout when the browser window is resized.
         container: $('#main'), // Optional, used for some extra CSS styling
         offset: 2, // Optional, the distance between grid items
-        itemWidth: 210 // Optional, the width of a grid item
+        itemWidth: 350 // Optional, the width of a grid item
       };
       // Get a reference to your grid items.
       var handler = $('#tiles li');
@@ -331,7 +355,7 @@ function photowall(dayname){
         li[i].setAttribute("id", "element"+i);
         li[i].setAttribute("class", "photo");
         ul.appendChild(li[i]);
-        $('#element'+i).append('<a href="'+acturl[i]+'"><img src="'+imgsrc[i]+'" width="190px" height="autoResize"></a>');
+        $('#element'+i).append('<div><img id="pin" src="https://cdn3.iconfinder.com/data/icons/softwaredemo/PNG/256x256/DrawingPin1_Blue.png"></div><a href="'+acturl[i]+'"><div class="portfolio-item"><img src="'+imgsrc[i]+'" width="300px" height="autoResize"></div></div></a>');
     }
     showphoto();
 
