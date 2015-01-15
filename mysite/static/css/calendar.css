@@ -60,22 +60,24 @@ body{
 }
 #week{
     margin-left:10%;
+    text-align: center;
+    width:84%;
     font-weight:800;
     font-size: 1.3em;
     color:#31345E;
+    font-weight: bold;
 }
 
-.dayName p{
+div.dayName{
+    width: 13%;
+    float: left;
     margin: 2px;
-    width: 120px;
-    font-size: .9em;
-    font-weight: bold;
-    padding: auto;
-    text-align: center;
+    cursor: pointer;
 }
+
 
 .dayBox {
-    width: 120px;
+    width: 12%;
     height: 120px;
     float: left;
     margin: 2px;
@@ -90,7 +92,7 @@ body{
 
 .empty {
 
-    width: 120px;
+    width: 12%;
     height: 120px;
     float: left;
     margin: 2px;
@@ -99,7 +101,7 @@ body{
 
 }
 .nullBox{
-    width: 120px;
+    width: 12%;
     height: 120px;
     float: left;
     margin: 2px;

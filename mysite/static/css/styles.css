@@ -101,3 +101,17 @@ a.scrollup:hover{
 	font-weight:600;
 	color: #FF3385;
 }
+#myModalLabel{
+	font-weight:600;
+	color:#004149;
+}
+#modalcon p{
+	padding-left:10px;
+	
+	color:#31345E;
+}
+#eventtime {padding-top:10px;}
+#myModal .modal-dialog
+{
+    width: 500px; /* your width */
+}

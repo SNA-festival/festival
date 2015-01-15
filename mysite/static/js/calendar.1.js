@@ -36,6 +36,7 @@ function createCalendar(){
     scrollsmooth();
     $('#calendar').append('<div id="header"></div>');
     $('#calendar').append('<div id="month"></div>');
+    
 
     var blocks;
 
@@ -63,16 +64,18 @@ function createCalendar(){
         nullbox = 7; 
         blocks = 35;
     }
-    
+    $('.dayBox').css({'height':$('.dayBox').width()+'px'});
+    $('.nullBox').css({'height':$('.nullBox').width()+'px'});
+    $('.empty').css({'height':$('.empty').width()+'px'});
     
     for(var i=0; i<blocks; i++){
 
         if(i===0){
 
-            $('#header').append('<p class="months"><span id="prevMonth" onclick="fadeoutpre()" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="fadeoutnext()"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/><div id="week"></div>');
+            $('#header').append('<p class="months"><span id="prevMonth" onclick="fadeoutpre()" class="changeMonth">'+monthList[previousMonth]+'</span><span id="currentMonth">'+monthList[currentMonth]+' '+currentYear+'</span><span id="nextMonth" onclick="fadeoutnext()"class="changeMonth">'+monthList[nextMonth]+'</span></p><br/>');
         }
         if(i<7){
-            $('#week').append('<div class="dayName"><p>'+dayList[i]+'</p></div>');
+            $('#week').append('<div class="dayName"><span>'+dayList[i]+'</span></div>');
         }
         if(i%7===0){
             $('#month').append('<div class="clear"></div>');
@@ -409,7 +412,8 @@ function uploadmodal(dayname,num){
         evesty[i]=$('.'+dayname+'story')[i].innerHTML;
     }
 
-    document.getElementById("myModalLabel").innerHTML= dayname+"   "+evedate[num];
+    document.getElementById("myModalLabel").innerHTML= dayname;
+    document.getElementById("eventtime").innerHTML= evedate[num];
     document.getElementById("eventimg").setAttribute("src",imgsrc[num]);
     document.getElementById("eventstory").innerHTML= evesty[num];
     // document.getElementById("modalshare").setAttribute("href","https://www.facebook.com/sharer/sharer.php?u="+acturl[num]);

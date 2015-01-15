@@ -4,6 +4,11 @@
 {% load staticfiles%}
 <link rel="stylesheet" type="text/css" href="{% static 'css/post_detail_.css' %}">
 <script type="text/javascript" src="{% static 'js/post_detail_.js' %}" ></script>
+<style type="text/css">
+    *{
+        font-family:"微軟正黑體";
+    }
+</style>
 <body>
     <div class="scroll_b">
         <div class="panel">
@@ -18,9 +23,9 @@
                 <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
             </div>
             <!--<div>-->
-                <h1>{{ post.festival_name }}</h1>
+                <h1 style="font-weight:600; color:#004149;">{{ post.festival_name }}</h1>
                 <p>{{ post.set_date }}</p>
-                <img src="http://festival-rdia0117-2.c9.io/media/{{ post.docfile }}" >
+                <img src="http://festival-rdia0117-2.c9.io/media/{{ post.docfile }}" width="420px" height="320px">
                 <p>關於節慶的小故事</p>
                 <p>{{ post.festival_story }}</p>
                 
