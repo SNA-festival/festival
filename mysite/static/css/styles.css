@@ -41,6 +41,9 @@ p.story{
 #thisstory{
 	display:none;
 }
+#thistitle{
+	display:none;
+}
 h1{
 	background-color:#292929;
 	border-bottom:1px solid #222222;
@@ -113,5 +116,5 @@ a.scrollup:hover{
 #eventtime {padding-top:10px;}
 #myModal .modal-dialog
 {
-    width: 500px; /* your width */
+    width: 900px; /* your width */
 }

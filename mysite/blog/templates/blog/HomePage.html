@@ -29,12 +29,11 @@
   <script type="text/javascript" src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/jquery.wookmark.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/modal.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/post_detail_.js' %}" ></script>
 
 </head>
  
 
-
-</head>
 
 <body>
 	<script type="text/javascript" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -95,24 +94,42 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title" id="myModalLabel"></h3>
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
       </div>
       <div class="modal-body">
         <div id="modalcon">
-          <p id=eventtime style="font-weight: 500;"></p>
-        <div id="con"><img id="eventimg" src="" width="420px" height="320px"></div>
-        
-        <div><h4 id="asas" style="font-weight: bold; padding-left:5px;">關於節慶的小故事</h4></div>
-        <div ><p id="eventstory"></p></div>
+         
+        <div class="row">
+          <div class="col-md-6">
+            <img id="eventimg" src="" width="400px" height="320px">
+          </div>
+          <div class="col-md-6">
+             <p id=eventtime style="font-weight: 500;"></p>
+            <div><h4 id="asas" style="font-weight: bold; padding-left:5px;">關於節慶的小故事</h4></div>
+            <div><p id="eventstory"></p></div>
         </div>
+        </div>
+          </div>
+        
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" ><a id="modalshare">Share</a></button>
+        <div id="fcs_div_54b652c121845"><a title="free comment script" href="http://www.freecommentscript.com"></a></div>
         
       </div>
     </div>
   </div>
 </div>
+
 
 
 <div class="container">

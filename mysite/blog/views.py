@@ -181,3 +181,16 @@ def Home(request):
     {'formUpload': formUpload, 'posts': posts, 'form': form},
     context_instance=RequestContext(request)
     )
+    
+def guide(request):
+    
+    if request.method == "POST":
+        
+        Loginform = PostForm(request.POST)
+        if Loginform.is_valid():
+            # login = Loginform.save(commit=False)
+            # login.save()
+            
+            return HttpResponseRedirect("ok!")   
+    
+    return HttpResponseRedirect(".")    

@@ -141,8 +141,10 @@ function showevent(){
     var mon= [];
     var whatdday=[];
     var whatmon=[];
+    var dateRecord[];
     var printthis=[];
     var newelem=[];
+    var k;
     for(var i=0;i<$('.post').length;i++){
         
         mon[i]= $('.date')[i].innerHTML.substring(0, 3);
@@ -150,30 +152,39 @@ function showevent(){
         
         if(mon[i]=="Jan"){
             whatmon[i]=0;
-        }else if(mon[i]=="Feb"){
+        }
+        if(mon[i]=="Feb"){
              whatmon[i]=1;
-        }else if(mon[i]=="Mar"){
+        }
+        if(mon[i]=="Mar"){
              whatmon[i]=2;
-        }else if(mon[i]=="Apr"){
+        }
+        if(mon[i]=="Apr"){
              whatmon[i]=3;
-        }else if(mon[i]=="May"){
+        }
+        if(mon[i]=="May"){
              whatmon[i]=4;
-        }else if(mon[i]=="Jun"){
+        }
+        if(mon[i]=="Jun"){
              whatmon[i]=5;
-        }else if(mon[i]=="Jul"){
+        }
+        if(mon[i]=="Jul"){
              whatmon[i]=6;
-        }else if(mon[i]=="Aug"){
+        }
+        if(mon[i]=="Aug"){
              whatmon[i]=7;
-        }else if(mon[i]=="Sep"){
+        }
+        if(mon[i]=="Sep"){
              whatmon[i]=8;
-        }else if(mon[i]=="Oct"){
+        }
+        if(mon[i]=="Oct"){
              whatmon[i]=9;
-        }else if(mon[i]=="Nov"){
+        }
+        if(mon[i]=="Nov"){
              whatmon[i]=10;
-        }else if(mon[i]=="Dec"){
+        }
+        if(mon[i]=="Dec"){
              whatmon[i]=11;
-        }else {
-             whatmon[i]=12;
         }
         
         if ($('.date')[i].innerHTML.charAt(6)==","){
@@ -192,15 +203,18 @@ function showevent(){
         newelem[i].setAttribute("class","itemname");
   
         if(whatmon[i]==currentMonth){
-
-            for(var j=0;j<i;j++){
-                if(whatdday[i]!=whatdday[j]){
-                    
+            alert(whatdday[i]);
+            alert(i);
+            dateRecord[k]=whatdday[i]
+            for(var j=0;j<k;j++){
+                
+                if(whatdday[i]!=dateRecord[j]){
+                    // alert(whatdday[i])
                     document.getElementById(printthis[i]).appendChild(newelem[i]);
                     $('#newelem'+i).append('<div class="namebg"><a id="'+$('.post')[i].innerHTML+'" href="#showimg" class="dt" onClick="photowall(this.id)">'+$('.post')[i].innerHTML+'</a></div>');
                     break;
                 }else {
-                    
+                    alert("repeat");
                     if($('.post')[i].innerHTML!=$('.post')[j].innerHTML){
                         document.getElementById(printthis[i]).appendChild(newelem[i]);
                         $('#newelem'+i).append('<div class="namebg"><a id="'+$('.post')[i].innerHTML+'" href="#showimg" class="dt" onClick="photowall(this.id)">'+$('.post')[i].innerHTML+'</a></div>');
@@ -424,7 +438,6 @@ function uploadmodal(dayname,num){
             yeah("https://www.facebook.com/sharer/sharer.php?u="+acturl[num]); 
         };
 
-    
 }
 function yeah(yaya){
   

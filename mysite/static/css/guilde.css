@@ -1,0 +1,34 @@
+*{
+    font-family:"微軟正黑體";
+}
+#guildbg{
+    background-image:url("../img/kids-communicate.jpg");
+    width:100%;
+    height:600px;
+    background-size:cover;
+}
+#guildtitle{
+    padding-left:35%;
+    padding-top:15%;
+    color:#fff;
+    font-size: 5em;
+    font-weight:600;
+}
+#guildsubtitle{
+    padding-left:35%;
+    
+}
+#goto{
+    padding-left:44%;
+    padding-top:2%;
+    
+}
+
+#ahref:hover{
+    text-decoration:none;
+    color:#11;
+}
+#ahref{
+     text-decoration:none;
+    color:#111;
+}

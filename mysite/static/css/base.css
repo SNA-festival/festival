@@ -1,8 +1,13 @@
 .login_b{
     padding-left:10%;
     padding-top:10%;
+    margin-top:10%;
     overflow: hidden;
 }
 .data-auto-logout-link{
     padding-left:10%;
+}
+.navbar-brand{
+    padding-top:10%;
+    margin-top:10%;
 }
